@@ -28,10 +28,6 @@
                 </form>
                 </div>
             </div>
-            
-            <div class="card" style="margin-top: 2.0rem; padding: 20px;">
-                <a href="/registro_end" id="toggleFields" class="collapse-btn" style= "width: 50%">Cadastrar endereco</a>
-            </div>
         </section>
     </main>
 

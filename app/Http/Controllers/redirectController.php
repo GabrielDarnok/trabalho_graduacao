@@ -7,7 +7,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
-use App\Models\Endereco;
 use App\Models\Pedido;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Gate;
@@ -29,12 +28,10 @@ class redirectController extends Controller
         if ($dados === null) {
             return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
         }
-
-        $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
         
         $dados = parent::verificaUsuarioLog();
 
-        return view('cart', ['dados' => $dados, 'enderecos' => $enderecos]);
+        return view('cart', ['dados' => $dados]);
         
     }
     public function contato(){
@@ -73,10 +70,8 @@ class redirectController extends Controller
         if ($dados === null) {
             return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
         }
-        
-        $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
 
-        return view('user.registro_end', ['enderecos' => $enderecos, 'dados' => $dados]);
+        return view('user.registro_end', ['dados' => $dados]);
     }
     public function shop(){
         
@@ -92,50 +87,10 @@ class redirectController extends Controller
 
         return view('sobre',['dados' => $dados]);
     }
-    public function admin(){
-        
-        if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
-           return redirect('/');
-        }
-
-        $produtcs = Product::all();
-
-        return view('admin.admin',['products' => $produtcs]);
-    }
     public function cadastroPage(){
         
         $dados = parent::verificaUsuarioLog();
         
         return view('cadastroPage',['dados' => $dados]);
-    }
-
-    public function checkout(Request $request)
-    {
-        
-        $dados = parent::verificaUsuarioLog();
-
-        if ($dados === null) {
-            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
-        }
-
-        //Validação para quando passar o id do endereço pelo form de confirmar o pedido
-        //$valida = Endereco::where('id',$request->id_endereco)->where('id_usuario', auth()->user()->id)->get();
-        //if($valida){
-        //    $pedido = new Pedido();
-
-        //    $pedido->id_endereco = $request->id_endereco;
-        //    $pedido->save();
-        //}else{
-        //    return redirect('/')->with('err','Endereço fornecido é invalido.');
-        //}
-        if ($dados['subtotal'] === 0) {
-            return redirect()->back()->with('err','Você precisa adicionar produtos no carrinho para ir para a pagina de pagamentos.');
-        }
-        
-        return view('checkout',['dados' => $dados]);
-    }
-    public function pagamento(){
-
-        return view('pagamento');
     }
 }

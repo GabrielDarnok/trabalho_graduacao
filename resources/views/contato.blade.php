@@ -27,7 +27,7 @@
                         <div class="bx bx-envelope contact__icon"></div>
                         <div>
                             <h3 class="contact__title">Email</h3>
-                            <span class="contact__subtitle">youmatter@email.com</span>
+                            <span class="contact__subtitle">zapolla@email.com</span>
                         </div>
                     </div>
 
@@ -35,7 +35,7 @@
                         <div class="bx bx-map contact__icon"></div>
                         <div>
                             <h3 class="contact__title">Localidade</h3>
-                            <span class="contact__subtitle">Av. Cônego Antônio Roccato, 593 - Jardim Santa Monica, Campinas - SP</span>
+                            <span class="contact__subtitle">Av. Augusta Diogo Ayala, 500 - Jardim Bom Retiro (Nova Veneza), Sumaré - SP, 13181-610</span>
                         </div>
                     </div>
                 </div>

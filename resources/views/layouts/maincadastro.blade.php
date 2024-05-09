@@ -8,7 +8,8 @@
     <link rel="icon" href="/img/Logo.png" type="image/x-icon">
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
+    <!--=============== FONTAWESOME===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="/css/swiper-bundle.min.css">
 
@@ -16,56 +17,31 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/colors/color-1.css">
 
-    <title>You Matter</title>
+    <title>Zapolla</title>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!--=============== HEADER ===============-->
     <header class="header" id="header">
-        <nav class="nav container">
+        <div class="nav container">
             <a href="/" class="nav__logo">
-                <img src="/img/Logo.png" alt="You Matter">
+                <img src="/img/logo_zap.png" alt="Zapolla">
             </a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="/" class="nav__link">Início</a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="/shop" class="nav__link">Shop</a>
-                    </li>
-                    @auth
-                    <li class="nav__item">
-                        <a href="/cart" class="nav__link">Carrinho</a>
-                    </li>
-                    @endauth
-                    <li class="nav__item">
-                        <a href="/sobre" class="nav__link">Quem somos</a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="/contato" class="nav__link">Contato</a>
-                    </li>
-                    @auth
-                    @if(auth()->user()->role == "admin")
-                    <li class="nav__item">
-                        <a href="/admin" class="nav__link">Admin Page</a>
-                    </li>
-                    @endif
-                    @endauth
-                </ul>
-
-                <div class="nav__close" id="nav-close">
-                    <i class="bx bx-x"></i>
+            
+            <div class="nav__search-box">
+                <div style="display: flex; justify-content: space-between; width: 100%">
+                    <input class="input" style="border: black; width: 18rem" name="search" placeholder="O que procura na Zapolla?" id="valorPesquisa" oninput="productFilter('atual')">
+                    <button style="background: white;" onclick="productFilter()">
+                        <img src="/img/loupe.png" alt="lupa" height="20" width="20">
+                    </button>
                 </div>
             </div>
+
             <div class="nav__btns">
 
                 <div class="nav__search" id="nav-search">
-                    <a href="/shop" class="bx bx-search"></a>
+                    <a href="/shop"><i class="bx bx-search"></i></a>
                 </div>
                 @guest
                 <div class="login__toggle" id="login-toggle">
@@ -115,7 +91,7 @@
                 </div>
 
             </div>
-        </nav>
+        </div>
     </header>
     <!--=============== CART ===============-->
     <div class="cart" id="cart">
@@ -135,16 +111,20 @@
                     <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
                     <div class="cart__amount">
                         <div class="cart__amount-content">
-                            <span class="cart__amount-box">
+                            <span class="cart__amount-box" onclick="countProduct('-', {{ $cart->id }})">
                                 <i class="bx bx-minus"></i>
                             </span>
 
-                            <span class="cart__amount-number">1</span>
-
-                            <span class="cart__amount-box">
+                            <span class="cart__amount-number" id="CountProductMain{{ $cart->id }}">{{ $cart->quantidade_car }}</span>
+                            <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
+                            <span class="cart__amount-box" onclick="countProduct('+', {{ $cart->id }})">
                                 <i class="bx bx-plus"></i>
                             </span>
                         </div>
+                              
+                            <input type="hidden" name="quantidade_car" id="countProductMain{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
+                            <input type="hidden" name="id" value="{{ $cart->id }}">
+                            
                         <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -157,8 +137,8 @@
         </div>
 
         <div class="cart__prices">
-            <span class="cart__prices-item">{{ $dados['count'] }} Produtos</span>
-            <span class="cart__prices-total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
+            <span class="cart__prices-item" id="quantidadeProdutos">{{ $dados['count'] }} Produtos</span>
+            <span class="cart__prices-total" id="total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
         </div>
         @else
         <div class="cart__container">
@@ -170,8 +150,34 @@
         </div>
         @endif
     </div>
-        
-
+        @if(session('msg'))
+        <input type="hidden" id="msg" value="{{ session('msg') }}">
+        <script>
+            var mensagem = document.getElementById('msg').value;
+            if (mensagem) {
+                Swal.fire(
+                    'Sucesso!',
+                    mensagem,
+                    'success'
+                );
+                <?php session(['msg' => null]); ?>
+            }
+        </script>
+        @elseif(session('err')) 
+        <input type="hidden" id="msg" value="{{ session('err') }}">
+        <script>
+            var mensagem = document.getElementById('msg').value;
+            if(mensagem){
+                Swal.fire(
+                    'Opa!',
+                    mensagem,
+                    'error'
+                );
+                <?php session(['err' => null]); ?>
+                console.log('Mensagem definida como nula na sessão');
+            }
+        </script>         
+        @endif
     <!--=============== LOGIN ===============-->
 
     <main> 
@@ -197,7 +203,7 @@
             <!--FOOTER CONTEUDO 1-->
             <div class="footer__content">
                 <a href="#" class="footer__logo">
-                    <i class="bx bxs-shopping-bags footer__logo-icon"></i> You Matter
+                    <i class="bx bxs-shopping-bags footer__logo-icon"></i> Zapolla
                 </a>
 
                 <p class="footer__description">Aproveite <br> as compras!</p>
@@ -239,5 +245,5 @@
                 </ul>
             </div>
         </div>
-       <span class="footer__copy">&#169; Grimm Graphic Designer. All rights reserved.</span>
+       <span class="footer__copy">&#169; Fatec Campinas Developer Team. All rights reserved.</span>
     </footer>

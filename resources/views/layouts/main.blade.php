@@ -92,42 +92,6 @@
 
             </div>
         </div>
-        <!-- <div class="nav container">
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="/" class="nav__link">Início</a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="/shop" class="nav__link">Shop</a>
-                    </li>
-                    @auth
-                    <li class="nav__item">
-                        <a href="/cart" class="nav__link">Carrinho</a>
-                    </li>
-                    @endauth
-                    <li class="nav__item">
-                        <a href="/sobre" class="nav__link">Quem somos</a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="/contato" class="nav__link">Contato</a>
-                    </li>
-                    @auth
-                    @if(auth()->user()->role == "admin")
-                    <li class="nav__item">
-                        <a href="/admin" class="nav__link">Admin Page</a>
-                    </li>
-                    @endif
-                    @endauth
-                </ul>
-
-                <div class="nav__close" id="nav-close">
-                    <i class="bx bx-x"></i>
-                </div>
-            </div>
-        </div> -->
     </header>
     <!--=============== CART ===============-->
     <div class="cart" id="cart">
@@ -262,7 +226,7 @@
             <div class="footer__content">
                 <h3>
                 <a class="footer__logo">
-                    <i class="bx bxs-shopping-bags footer__logo-icon"></i>You Matter
+                    <i class="bx bxs-shopping-bags footer__logo-icon"></i>Zapolla
                 </a>
                 </h3>
                 <p class="footer__description">Aproveite <br> as compras!</p>
