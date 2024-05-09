@@ -683,9 +683,18 @@ input {
 }
 
 /*=============== Shop Page ===============*/
+.shop {
+    padding-top: 6rem;
+}
+
 .shop__container {
-    grid-template-columns: 1.7fr 3.3fr;
+    grid-template-columns: 1fr 3.3fr;
     column-gap: 1.8rem;
+}
+
+.shop__search {
+    margin-bottom: .5rem;
+    font-weight: 600;
 }
 
 .sidebar {

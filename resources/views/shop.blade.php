@@ -10,7 +10,7 @@
         <section class="shop section container">
             <h2 class="breadcrumb__title">Shop</h2>
             <h3 class="breadcrumb__subtitle">Inicio > <span>Shop</span></h3>
-            <div style="display: flex; margin-bottom: 40px;">
+            <!-- <div style="display: flex; margin-bottom: 40px;">
                 <div class="search__box" style = "background-color: #ffffff">
                     <div  style="display: flex; justify-content: space-between; width: 100%">
                         <input class="input" style="border-radius: 10px; border: black" name="search" placeholder="Pesquise aqui" id="valorPesquisa" oninput="productFilter('atual')">
@@ -19,7 +19,8 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <h3 class="shop__search">Resultados para: </h3>
             @if(isset($message))
 				<p style="text-align: center;">{{ $message }}</p>
             @elseif(isset($products))
