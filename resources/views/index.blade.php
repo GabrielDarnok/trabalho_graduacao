@@ -93,15 +93,36 @@
         </section>
 
         <section class="discount section">
+            <h2 class="section__title"> Seleção de categorias</h2>
             <div class="categories__container container">
-              <div>Ferramentas</div>
-              <div>Materias de construção</div>
-              <div>Pregos e parafusos</div>
-              <div>Diversos</div>
+              <div class="steps__card">
+                <div class="icon__card">
+                    <i class="fa-solid fa-hammer"></i>
+                </div>
+                <h3>Ferramentas</h3>
+              </div>
+              <div class="steps__card">
+                <div class="icon__card">
+                    <i class="fa-solid fa-trowel-bricks"></i>
+                </div>
+                <h3>Materias de construção</h3>
+              </div>
+              <div class="steps__card">
+                <div class="icon__card">
+                    <i class="fa-solid fa-screwdriver"></i>
+                </div> 
+                <h3>Pregos e parafusos</h3>
+                </div>
+                <div class="steps__card">
+                    <div class="icon__card">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>  
+                    <h3>Diversos</h3>
+                </div>
             </div>
         </section>
         <!--=============== DISCOUNT ===============-->
-        <section class="discount section">
+        <!-- <section class="discount section">
             <div class="categories__container container">
                 <img src="/img/discount.png" alt="" class="discount__img">
 
@@ -110,7 +131,7 @@
                     <a href="/shop" class="button">Ir as Compras</a>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!--=============== NEW COLECTION ===============-->
         <section class="new section">
@@ -127,15 +148,17 @@
                                 <img src="/img/product/{{ $product->imagem_produto }}" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">{{ $product->nome_produto }}</h3>
-                            <span class="new__subtitle">You Matter</span>
+                            <span class="new__subtitle">{{ $product->descricao_produto }}</span>
 
                             <div class="new__prices">
-                                <span class="new__price">{{ number_format($product->valor_produto, 2, ',', '.') }}</span>
+                                <span class="new__price"> R$ {{ number_format($product->valor_produto, 2, ',', '.') }}</span>
                             </div>
 
                             <a href="/shop/product/{{ $product->id }}" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
+
+                            <button class="button product__btn">COMPRAR</button>
                         </div>
                         @endforeach
                         @endif
@@ -147,36 +170,8 @@
         <!--=============== STEPS ===============-->
         <section class="steps section container" id="stepslink">
             <div class="steps__bg">
-                <h2 class="section__title">Como encomendar <br> do shop!</h2>
-
-                <div class="steps__container grid">
-                    <!--PASSO 1-->
-                    <div class="steps__card">
-                        <div class="steps__card-number">01</div>
-                        <h3 class="steps__card-title">Escolha Um Produto</h3>
-                        <p class="steps__card-description">
-                            Temos uma variedade de produtos a sua escolha e disposição, esperamos sua compra :)
-                        </p>
-                    </div>
-
-                    <!--PASSO 2-->
-                    <div class="steps__card">
-                        <div class="steps__card-number">02</div>
-                        <h3 class="steps__card-title">Faça Um Pedido</h3>
-                        <p class="steps__card-description">
-                            Assim que seu pedido for confirmado, nós iremos para o próximo passo que é o envio!
-                        </p>
-                    </div>
-
-                    <!--PASSO 3-->
-                    <div class="steps__card">
-                        <div class="steps__card-number">03</div>
-                        <h3 class="steps__card-title">Entrega</h3>
-                        <p class="steps__card-description">
-                            Enviaremos seu produto no mesmo dia, em pouco tempo você o terá diretamente na sua casa!
-                        </p>
-                    </div>
-                </div>
+                <img src="img/promo_1.jpg" alt="promoção 1">
+                <img src="img/promo_2.jpg" alt="promoção 2">
             </div>
         </section>
 

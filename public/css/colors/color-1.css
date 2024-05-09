@@ -1,6 +1,6 @@
 :root
 {
     --hue: 0;
-    --first-color: hsl(var(--hue), 88%, 61%);
-    --first-color-alt: hsl(var(--hue), 88%, 58%)
+    --first-color: #da001b;
+    --first-color-alt: #646464;
 }
