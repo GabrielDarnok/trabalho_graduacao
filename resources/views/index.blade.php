@@ -121,17 +121,6 @@
                 </div>
             </div>
         </section>
-        <!--=============== DISCOUNT ===============-->
-        <!-- <section class="discount section">
-            <div class="categories__container container">
-                <img src="/img/discount.png" alt="" class="discount__img">
-
-                <div class="discount__data">
-                    <h2 class="discount__title">5% de Desconto <br> Em Pagamentos Via Pix!</h2>
-                    <a href="/shop" class="button">Ir as Compras</a>
-                </div>
-            </div>
-        </section> -->
 
         <!--=============== NEW COLECTION ===============-->
         <section class="new section">
@@ -145,7 +134,7 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="/shop/product/{{ $product->id }}">
-                                <img src="/img/product/{{ $product->imagem_produto }}" alt="" class="new__img">
+                                <img src="/img/product/{{ $product->imagem_produto_1 }}" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">{{ $product->nome_produto }}</h3>
                             <span class="new__subtitle">{{ $product->descricao_produto }}</span>
@@ -158,7 +147,7 @@
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
 
-                            <button class="button product__btn">COMPRAR</button>
+                            <a href="/shop/product/{{ $product->id }}"><button class="button product__btn">COMPRAR</button></a>
                         </div>
                         @endforeach
                         @endif

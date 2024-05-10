@@ -238,7 +238,7 @@
                 objetos.products.data.forEach(function(objeto) {
                     htmlProduct += '<div class="shop__content">';
                     htmlProduct += '<a href="/shop/product/'+objeto.id+'">';
-                    htmlProduct += '<img src="/img/product/'+objeto.imagem_produto+'" alt="" class="shop__img"></a>';
+                    htmlProduct += '<img src="/img/product/'+objeto.imagem_produto_1+'" alt="" class="shop__img"></a>';
                     htmlProduct += '<h3 class="shop__title">'+objeto.nome_produto+'</h3>';
                     htmlProduct += '<span class="shop__subtitle">'+objeto.descricao_produto+'</span>';
                     htmlProduct += ' <div class="shop__prices"><span class="shop__price">'+objeto.valor_produto.toLocaleString('pt-BR', opcoes)+'</span></div>';

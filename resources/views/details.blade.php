@@ -34,23 +34,26 @@
             <h3 class="breadcrumb__subtitle">Inicio > <span>Detalhes</span></h3>
 
             <div class="details__container grid">
-                <div class="product__images grid">
-                    <div class="product__img">
-                        <div class="details__img-tag">Novo</div>
-                        <img src="/img/product/{{ $Product->imagem_produto }}" alt="">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @for($i = 1; $i <= 4; $i++)
+                            @if(isset($Product->{"imagem_produto_$i"}))
+                                <div class="carousel-item {{ $i === 1 ? 'active' : '' }}">
+                                    <img src="/img/product/{{ $Product->{"imagem_produto_$i"} }}" class="d-block w-100" alt="...">
+                                </div>
+                            @endif
+                        @endfor
                     </div>
-
-                    <div class="product__img">
-                        <img src="/img/product/{{ $Product->imagem_produto_2 }}" alt="">
-                    </div>
-
-                    <div class="product__img">
-                        <img src="/img/product/{{ $Product->imagem_produto_3 }}" alt="">
-                    </div>
-
-                    <div class="product__img">
-                        <img src="/img/product/{{ $Product->imagem_produto_4 }}" alt="">
-                    </div>
+                    @if($i > 2)
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    @endif
                 </div>
 
                 <div class="product__info">
@@ -84,42 +87,9 @@
                         <input type="hidden" name="id" value="{{ $Product->id }}">
                         <input type="hidden" name="quantidade_car" id="countProduct" value="1">
                         <div>
-                            <h3 class="size__title">Tamanho</h3>
+                            <h3 class="size__title">Quantidade</h3>
                         </div>
 
-                        <div class="size__selector" style="width: 9rem; height: 1.5rem; margin-top:unset;">
-                            @php
-                                $tamanhos = explode(',', $Product->tamanho_roupa);
-                            @endphp
-
-                            @if(count($tamanhos) >= 1)
-                                <select name="tamanho_roupa">
-                                    @foreach ($tamanhos as $tamanho)
-                                        <option value="{{ $tamanho }}">{{ $tamanho }}</option>
-                                    @endforeach
-                                </select>
-                            @else
-                                <p>{{ $Product->tamanho_roupa }}</p>
-                            @endif
-                        </div>
-                        <div style="margin-top: 5px;">
-                            <h3 class="size__title">Cor</h3>
-                        </div>
-                        <div class="size__selector" style="width: 9rem; margin-bottom: 2rem; margin-top:unset; height: 1.5rem;">
-                            @php
-                                $cores = explode(',', $Product->cor_produto);
-                            @endphp
-
-                            @if(count($cores) >= 1)
-                                <select name="cor_produto">
-                                    @foreach ($cores as $cor)
-                                        <option value="{{ $cor }}">{{ $cor }}</option>
-                                    @endforeach
-                                </select>
-                            @else
-                                <p>{{ $Product->cor_produto }}</p>
-                            @endif
-                        </div>
                         <div class="cart__amount" style="margin-bottom: 1.5rem;">
                             <div class="cart__amount-content">
                                 <span class="cart__amount-box" onclick="countProductDetais('-')">
@@ -151,7 +121,7 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="/shop/product/{{ $product_show->id }}">
-                                <img src="/img/product/{{ $product_show->imagem_produto }}" alt="" class="new__img">
+                                <img src="/img/product/{{ $product_show->imagem_produto_1 }}" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">{{ $product_show->nome_produto }}</h3>
                             <span class="new__subtitle">You Matter</span>
@@ -190,7 +160,6 @@
               <input type="radio" name="rate" id="rate-1">
               <label for="rate-1" class="fas fa-star"></label>
               <form action="#">
-                <header></header>
                 <div class="textarea">
                   <textarea cols="30" placeholder="Descreva o que achou do produto.."></textarea>
                 </div>
@@ -199,7 +168,7 @@
                 </div>
               </form>
             </div>
-          </div>
+        </div>
     </main>  
 
     <!--=============== LIGHTBOX ===============-->

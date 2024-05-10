@@ -115,8 +115,11 @@
     padding: 0;
 }
 
-html {
+html, body {
     scroll-behavior: smooth;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body,
@@ -322,7 +325,9 @@ input {
 }
 
 /*=============== MAIN ===============*/
-
+.main-content {
+    min-height: calc(100vh - 100px); /* Altura mínima da tela menos a altura do footer */
+}
 /*========== Home Section ==========*/
 .home__content {
     padding: 9rem 0 2rem;
@@ -1465,7 +1470,6 @@ input {
     width: 150px;
     border-radius: 50%;
     padding: 6px;
-    background: #f3443c;
 }
 
 .info__text {
@@ -1638,8 +1642,12 @@ input {
 
 /*=============== Footer ===============*/
 .footer {
+    width: 100%;
+    background-color: #f8f9fa; /* Cor de fundo do footer */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
     position: relative;
-    overflow: hidden;
+    bottom: 0;
 }
 
 .footer__container {
@@ -2827,4 +2835,56 @@ input {
 }
 .cad:hover{
     cursor: pointer;
+}
+
+/* Estilos para o modal */
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+
+.modal-content input{
+    width: 80%;
+}
+
+.modal-content h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.modal-content .submit-conf{
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.custom-text-color {
+    text-decoration: none;
+    color: rgb(0, 255, 157);
 }

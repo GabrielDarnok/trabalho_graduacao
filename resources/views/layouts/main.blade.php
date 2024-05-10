@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="/css/style.css">
@@ -39,10 +40,6 @@
             </div>
 
             <div class="nav__btns">
-
-                <div class="nav__search" id="nav-search">
-                    <a href="/shop"><i class="bx bx-search"></i></a>
-                </div>
                 @guest
                 <div class="login__toggle" id="login-toggle">
                     <i class="bx bx-user"> </i>
@@ -50,7 +47,7 @@
                 @endguest
                 @auth
                 <div>
-                    <img src="/img/profile-pic.png" class="user__pic" id="userPic">
+                    <i class="bx bx-user" class="user__pic" id="userPic"> </i> 
                 </div>
                 <div class="sub-menu-wrap" id="subMenu">
 
@@ -86,8 +83,8 @@
                     <i class="bx bx-grid-alt"> </i>
                 </div>
 
-                <div>
-                    <img src="/img/moon.png" id="moon">
+                <div class="nav__togg">
+                    <i class="bx bxs-moon" id="moon"> </i>
                 </div>
 
             </div>
@@ -104,7 +101,7 @@
             @foreach ($dados['produtosNoCarrinho'] as $cart)
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src="/img/product/{{$cart->imagem_produto}}" alt="" class="cart__img">
+                    <img src="/img/product/{{$cart->imagem_produto_1}}" alt="" class="cart__img">
                 </div>
                 <div class="cart__details">
                     <h3 class="cart__title">{{$cart->nome_produto}}</h3>
@@ -187,7 +184,7 @@
         </form>
     </div>
 
-    <main> 
+    <main class="main-content"> 
         @if(session('msg'))
         <input type="hidden" id="msg" value="{{ session('msg') }}">
         <script>

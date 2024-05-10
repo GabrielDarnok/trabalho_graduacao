@@ -22,7 +22,7 @@
                     <div class="out__container">
                     <article class="out__card">
                         <div class="out__box">
-                            <img src="/img/product/{{ $cart->imagem_produto }}" alt="" class="out__img">
+                            <img src="/img/product/{{ $cart->imagem_produto_1 }}" alt="" class="out__img">
                         </div>
                         <div class="out__details">
                             <h3 class="out__title">{{ $cart->nome_produto }}</h3>
