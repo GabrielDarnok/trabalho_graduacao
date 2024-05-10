@@ -313,6 +313,10 @@ input {
     justify-content: space-around;
 }
 
+.nav__list-row .main-list a i {
+    transition: transform 0.8s ease;
+}
+
 .nav__list-row .main-list li {
     list-style: none;
 }
@@ -342,6 +346,10 @@ input {
 
 .nav__list-row .main-list li:hover .secondary-list {
     display: block;
+}
+
+.nav__list-row .main-list li:hover a i {
+    transform: rotate(180deg);
 }
 
 .nav__list-row .secondary-list li {
