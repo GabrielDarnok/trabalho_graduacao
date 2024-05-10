@@ -92,6 +92,49 @@
 
             </div>
         </div>
+        <div class="nav__underline-brand"></div>
+        <nav class="nav__list-row">
+            <ul class="main-list container">
+                <li>
+                    <a href="#">Ferramentas<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="#">Furadeira</a></li>
+                        <li><a href="#">Martelete</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Chuveiros<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="#">Ducha</a></li>
+                        <li><a href="#">Chuveiro elétrico</a></li>
+                        <li><a href="#">Chuveiro a gás</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portas<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="#">Portas de madeira</a></li>
+                        <li><a href="#">Portas de vidro</a></li>
+                        <li><a href="#">Portas de alumínio</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Pregos e Parafusos<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="#">Pregos</a></li>
+                        <li><a href="#">Parafusos</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Materiais de Construção<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="#">Cimento</a></li>
+                        <li><a href="#">Argamassa</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Diversos</a></li>
+            </ul>
+        </nav>
     </header>
     <!--=============== CART ===============-->
     <div class="cart" id="cart">
