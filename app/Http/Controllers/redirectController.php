@@ -81,11 +81,39 @@ class redirectController extends Controller
     public function cadastroPage(){
         
         $dados = parent::verificaUsuarioLog();
-        
-        if ($dados !== null) {
-            return redirect()->back()->with('err', 'Você já está cadastrado.');
-        }else{
-            return view('cadastroPage',['dados' => $dados]);
+        #if ($dados !== null) {
+        #    $urlAnterior = url()->previous();
+        #    dd($urlAnterior);
+        #    return redirect()->back()->with('err', 'Você já está cadastrado.');
+        #}else{
+        return view('cadastroPage',['dados' => $dados]);
+        #}
+    }
+    public function dashboardAdmin(){
+        if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
+            return redirect('/');
         }
+        return view('admin.dashboard_admin');
+    }
+
+    public function relatorioAdmin(){
+        if(!isset(auth()->user()->id) || auth()->user()->role == "admin"){
+            return redirect('/');
+        }
+        return view('admin.relatorio_admin');
+    }
+
+    public function relatorioScanAdmin(){
+        if(!isset(auth()->user()->id) || auth()->user()->role == "admin"){
+            return redirect('/');
+        }
+        return view('admin.relatorio-scan_admin');
+    }
+
+    public function produtosAdmin(){
+        if(!isset(auth()->user()->id) || auth()->user()->role == "admin"){
+            return redirect('/');
+        }
+        return view('admin.produtos_admin');
     }
 }

@@ -74,3 +74,10 @@ Route::get('/checkout', [redirectController::class, 'checkout']);
 
 Route::post('/validacep', [Controller::class,'validaCEP']);
 
+Route::get('/dashboard_admin', [redirectController::class,'dashboardAdmin']);
+
+Route::get('/relatorio_admin', [redirectController::class,'relatorioAdmin']);
+
+Route::get('/relatorio-scan_admin', [redirectController::class,'relatorioScanAdmin']);
+
+Route::get('/produtos_admin', [redirectController::class,'produtosAdmin']);

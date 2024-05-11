@@ -26,8 +26,6 @@ class Controller extends BaseController
 
         //valores para o pedido
         $idsDosProdutos = [];
-        $tamanhoProdutos = [];
-        $corProdutos = [];
         $quantidadeProdutos = [];
         $carrinho_id = [];
 
@@ -36,14 +34,10 @@ class Controller extends BaseController
             $produto = $item->produto;
             $produto->carrinho_id = $item->id; // Adicione o ID do carrinho ao objeto de produto para poder ser referenciado na view
             $produto->quantidade_car = $item->quantidade_car;
-            $produto->cor_car = $item->cor_car;
-            $produto->tamanho_car = $item->tamanho_car;
             $produtosNoCarrinho[] = $produto;
 
             //Salvando os valores separados para o pedido
             $idsDosProdutos[] = $produto->id;
-            $tamanhoProdutos[] = $produto->tamanho_car;
-            $corProdutos[] = $produto->cor_car;
             $quantidadeProdutos[] = $produto->quantidade_car;
             $carrinho_id[] = $item->id;
 
@@ -53,7 +47,7 @@ class Controller extends BaseController
         //Retorna a quantidade de produtos no carrinho
         $count = Car::where('id_usuario', auth()->user()->id)->sum('quantidade_car');
 
-        return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal, 'carrinho' => $carrinho, 'idsDosProdutos' => $idsDosProdutos, 'tamanhoProdutos' => $tamanhoProdutos, 'corProdutos' => $corProdutos, 'quantidadeProdutos' => $quantidadeProdutos, 'carrinho_id' => $carrinho_id]);
+        return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal, 'carrinho' => $carrinho, 'idsDosProdutos' => $idsDosProdutos, 'quantidadeProdutos' => $quantidadeProdutos, 'carrinho_id' => $carrinho_id]);
     }
     
         public function verificaUsuarioLog(){

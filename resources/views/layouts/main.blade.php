@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/colors/color-1.css">
 
-    <title>You Matter</title>
+    <title>@yield('title')</title>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -151,21 +151,18 @@
                     <h3 class="cart__title">{{$cart->nome_produto}}</h3>
                     <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
                     <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box" onclick="countProduct('-', {{ $cart->id }})">
-                                <i class="bx bx-minus"></i>
-                            </span>
-
-                            <span class="cart__amount-number" id="CountProductMain{{ $cart->id }}">{{ $cart->quantidade_car }}</span>
-                            <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
-                            <span class="cart__amount-box" onclick="countProduct('+', {{ $cart->id }})">
-                                <i class="bx bx-plus"></i>
-                            </span>
-                        </div>
-                              
-                            <input type="hidden" name="quantidade_car" id="countProductMain{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
-                            <input type="hidden" name="id" value="{{ $cart->id }}">
-                            
+                            <div class="cart__amount-content">
+                                <span class="cart__amount-box" onclick="countProduct('-', {{ $cart->id }})">
+                                    <i class="bx bx-minus"></i>
+                                </span>
+                                <span class="cart__amount-number" id="CountProductMain{{ $cart->id }}">{{ $cart->quantidade_car }}</span>
+                                <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
+                                <input type="hidden" name="id" value="{{ $cart->carrinho_id }}">
+                                <span class="cart__amount-box" onclick="countProduct('+', {{ $cart->id }})">
+                                    <i class="bx bx-plus"></i>
+                                </span>
+                            </div>   
+                        
                         <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
                             @csrf
                             @method('DELETE')

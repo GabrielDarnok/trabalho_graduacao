@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/colors/color-1.css">
 
-    <title>You Matter</title>
+    <title>@yield('title')</title>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

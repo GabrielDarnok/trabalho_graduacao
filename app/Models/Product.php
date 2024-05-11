@@ -13,8 +13,4 @@ class Product extends Model
 
     protected $guarded = [];
 
-    protected $casts = [
-        'tamanho_roupa' => 'array',
-        'cor_produto' => 'array'
-    ];
 }
