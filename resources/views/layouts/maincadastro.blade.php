@@ -132,41 +132,8 @@
                 <li><a href="{{ route('shop', ['search' => '']) }}">Diversos</a></li>
             </ul>
         </nav>
+        <!--========Não é possivel colocar a aba de login nesta tela pois está conflitando com o cadastro=====-->
     </header>
-    <!--=============== LOGIN ===============-->
-    <div class="login" id="login">
-        <i class="bx bx-x login__close" id="login-close"></i>
-
-        <h2 class="login__title-center">Login</h2>
-
-        <x-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('login') }}" class="login__form grid">
-            @csrf
-            <div class="login__content">
-                <label for="email" value="{{ __('Email') }}" class="login__label">Email</label>
-                <input id="email" class="login__input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
-            </div>
-
-            <div class="login__content">
-                <label for="password" value="{{ __('Password') }}" class="login__label">Senha</label>
-                <input id="password" class="login__input" type="password" name="password" required autocomplete="current-password">
-            </div>
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Lembrar de mim') }}</span>
-                </label>
-            </div>
-            <div>
-                <button type="submit" class="button" onclick="verifyLogin()">Entrar</button>
-            </div>
-
-            <div>
-                <p class="signup">Nãe é cadastrado? <a href="/cadastroPage">Cadastrar-se agora.</a></p>
-            </div>
-        </form>
-    </div>
         @if(session('msg'))
         <input type="hidden" id="msg" value="{{ session('msg') }}">
         <script>
@@ -226,9 +193,7 @@
                 <p class="footer__description">Aproveite <br> as compras!</p>
 
                 <div class="footer__social">
-                    <a href="#" class="footer__social-link"><i class="bx bxl-facebook"></i></a>
-                    <a href="#" class="footer__social-link"><i class="bx bxl-instagram"></i></a>
-                    <a href="#" class="footer__social-link"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://www.instagram.com/comercialzapolla/" class="footer__social-link" target="_blank"><i class="bx bxl-instagram"></i></a>
                 </div>
             </div>
 

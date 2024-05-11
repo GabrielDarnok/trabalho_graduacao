@@ -272,9 +272,7 @@
                 <p class="footer__description">Aproveite <br> as compras!</p>
 
                 <div class="footer__social">
-                    <a href="#" class="footer__social-link"><i class="bx bxl-facebook"></i></a>
-                    <a href="#" class="footer__social-link"><i class="bx bxl-instagram"></i></a>
-                    <a href="#" class="footer__social-link"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://www.instagram.com/comercialzapolla/" class="footer__social-link" target="_blank"><i class="bx bxl-instagram"></i></a>
                 </div>
             </div>
 

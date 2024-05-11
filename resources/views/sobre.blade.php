@@ -7,7 +7,7 @@
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== ABOUT ===============-->
-        <section class="about section container">
+        <section class="shop section container">
             <h2 class="breadcrumb__title">Quem Somos</h2>
             <h3 class="breadcrumb__subtitle">Inicio > <span>Quem Somos</span></h3>
 

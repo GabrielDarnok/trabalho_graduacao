@@ -3,7 +3,7 @@
 @section('title','profile')
 
 @section('content')
-        <section class="register section container">
+        <section class="shop register section container">
             <h2 class="breadcrumb__title">Perfil</h2>
             <h3 class="breadcrumb__subtitle">Inicio > <span>Perfil</span></h3>
             <div class="card">

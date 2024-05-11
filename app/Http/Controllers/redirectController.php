@@ -63,16 +63,6 @@ class redirectController extends Controller
 
         abort(403); // Acesso não autorizado
     }
-    public function registro(){
-
-        $dados = parent::verificaUsuarioLog();
-
-        if ($dados === null) {
-            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
-        }
-
-        return view('user.registro_end', ['dados' => $dados]);
-    }
     public function shop(Request $request) {
         $busca = $request->input('search');
     
@@ -92,6 +82,10 @@ class redirectController extends Controller
         
         $dados = parent::verificaUsuarioLog();
         
-        return view('cadastroPage',['dados' => $dados]);
+        if ($dados !== null) {
+            return redirect()->back()->with('err', 'Você já está cadastrado.');
+        }else{
+            return view('cadastroPage',['dados' => $dados]);
+        }
     }
 }

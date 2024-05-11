@@ -72,7 +72,5 @@ Route::post('/edit/car', [CarrinhoController::class, 'edit_carrinho']);
 
 Route::get('/checkout', [redirectController::class, 'checkout']);
 
-Route::post('/checkout/processar', [CheckoutController::class,'processar']);
-
 Route::post('/validacep', [Controller::class,'validaCEP']);
 

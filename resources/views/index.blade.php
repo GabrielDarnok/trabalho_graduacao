@@ -97,28 +97,28 @@
             <div class="categories__container container">
               <div class="steps__card">
                 <div class="icon__card">
-                    <i class="fa-solid fa-hammer"></i>
+                    <a href="{{ route('shop', ['search' => 'Martelo']) }}"><i class="fa-solid fa-hammer"></i></a>
                 </div>
                 <h3>Ferramentas</h3>
               </div>
               <div class="steps__card">
                 <div class="icon__card">
-                    <i class="fa-solid fa-trowel-bricks"></i>
+                    <a href="{{ route('shop', ['search' => 'Construção']) }}"><i class="fa-solid fa-trowel-bricks"></i></a>
                 </div>
                 <h3>Materias de construção</h3>
               </div>
               <div class="steps__card">
-                <div class="icon__card">
-                    <i class="fa-solid fa-screwdriver"></i>
-                </div> 
-                <h3>Pregos e parafusos</h3>
-                </div>
-                <div class="steps__card">
                     <div class="icon__card">
-                        <i class="fa-solid fa-ellipsis"></i>
-                    </div>  
-                    <h3>Diversos</h3>
-                </div>
+                        <a href="{{ route('shop', ['search' => 'Prego']) }}"><i class="fa-solid fa-screwdriver"></i></a>
+                    </div> 
+                    <h3>Pregos e parafusos</h3>
+                    </div>
+                    <div class="steps__card">
+                        <div class="icon__card">
+                            <a href="{{ route('shop', ['search' => '']) }}"><i class="fa-solid fa-ellipsis"></i></a>
+                        </div>  
+                        <h3>Diversos</h3>
+                    </div>
             </div>
         </section>
 
@@ -173,7 +173,7 @@
                 </p>
 
                 <form action="" class="newsletter__form">
-                    <input type="email" placeholder="Digite seu numero de telefone..." class="newsletter__input">
+                    <input type="text" placeholder="Digite seu numero de telefone..." class="newsletter__input" pattern="[0-9]*">
                     <button class="button">Enviar</button>
                 </form>
             </div>
