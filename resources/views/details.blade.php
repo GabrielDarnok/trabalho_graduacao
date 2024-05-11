@@ -29,7 +29,7 @@
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== DETAILS ===============-->
-        <section class="details section container">
+        <section class="shop section container">
             <h2 class="breadcrumb__title">Detalhes</h2>
             <h3 class="breadcrumb__subtitle">Inicio > <span>Detalhes</span></h3>
 

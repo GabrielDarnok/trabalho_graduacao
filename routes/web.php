@@ -32,7 +32,7 @@ Route::get('/profile/{id}',[redirectController::class, 'profile']);
 
 Route::get('/registro_end',[redirectController::class, 'registro']);
 
-Route::get('/shop',[redirectController::class, 'shop']);
+Route::get('/shop',[redirectController::class, 'shop'])->name('shop');
 
 Route::get('/sobre',[redirectController::class, 'sobre']);
 

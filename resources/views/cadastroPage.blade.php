@@ -39,8 +39,8 @@
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== ABOUT ===============-->
-        <section class="section container">
-            <h2 class="breadcrumb__title">Cadrastro</h2>
+        <section class="shop section container">
+            <h2 class="breadcrumb__title">Cadastro</h2>
             <h3 class="breadcrumb__subtitle">Inicio > <span>Cadastro</span></h3>
 
             <div class="container">

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.mainshop')
 
 @section('title','shop')
 
@@ -38,70 +38,6 @@
                         <div class="filter" >
                             <input type="checkbox" value="+" class="inputCategoria" onclick= "productFilter('atual')" name="" id="">
                             <p>Maior Preço</p>
-                        </div>
-
-                    </div>
-
-                    <div class="filter__content">
-                        <h3 class="filter__subtitle">Tamanho</h3>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="G" onclick= "productFilter('atual')" class="inputTamanho">
-                            <p>G</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="GG" onclick= "productFilter('atual')" class="inputTamanho">
-                            <p>GG</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="G2" onclick= "productFilter('atual')" class="inputTamanho">
-                            <p>G2</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="G3" onclick= "productFilter('atual')" class="inputTamanho">
-                            <p>G3</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="G4" onclick= "productFilter('atual')" class="inputTamanho">
-                            <p>G4</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="G5" onclick= "productFilter('atual')" class="inputTamanho">
-                            <p>G5</p> 
-                        </div>
-                    </div>
-
-                    <div class="filter__content">
-                        <h3 class="filter__subtitle">Estilos</h3>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="Casual" onclick= "productFilter('atual')" class="inputEstilo">
-                            <p>Casual</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="Streetwear" onclick= "productFilter('atual')" class="inputEstilo">
-                            <p>Streetwear</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="Fofo" onclick= "productFilter('atual')" class="inputEstilo">
-                            <p>Fofo</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="Festa" onclick= "productFilter('atual')" class="inputEstilo">
-                            <p>Festa</p> 
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="" value="Elegante" onclick= "productFilter('atual')" class="inputEstilo">
-                            <p>Elegante</p> 
                         </div>
 
                     </div>
@@ -174,11 +110,7 @@
             const pesquisaValor = document.getElementById('valorPesquisa').value;
             var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             var categorias = [];
-            var tamanhos = [];
-            var estilos = [];
             var allCategorias = document.querySelectorAll('.inputCategoria');
-            var allEstilos = document.querySelectorAll('.inputEstilo');
-            var allTamanhos = document.querySelectorAll('.inputTamanho');
 
             allCategorias.forEach(function (checkbox) {
                 if (checkbox.checked) {
@@ -186,29 +118,13 @@
                 }
             });
 
-            allEstilos.forEach(function (checkbox) {
-                if (checkbox.checked) {
-                    estilos.push(checkbox.value);
-                }
-            });
-
-            allTamanhos.forEach(function (checkbox) {
-                if (checkbox.checked) {
-                    tamanhos.push(checkbox.value);
-                }
-            });
-
             console.log("Categorias selecionadas:", categorias);
-            console.log("Estilos selecionados:", estilos);
-            console.log("Tamanhos selecionados:", tamanhos);
 
             $.ajax({
                 url: '/procura/product',
                 type: 'POST',
                 data: { 'search': pesquisaValor,
                         'categorias': categorias,
-                        'estilos': estilos,
-                        'tamanhos': tamanhos,
                         'page': page, 
                     },
                 headers: {

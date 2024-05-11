@@ -29,20 +29,17 @@
                 <img src="/img/logo_zap.png" alt="Zapolla">
             </a>
             
-            <div class="nav__search-box">
-                <div style="display: flex; justify-content: space-between; width: 100%">
-                    <input class="input" style="border: black; width: 18rem" name="search" placeholder="O que procura na Zapolla?" id="valorPesquisa" oninput="productFilter('atual')">
-                    <button style="background: white;" onclick="productFilter()">
+            <div class="nav__search-box" style="display: flex; align-items: center;">
+                <form method="GET" action="{{ route('shop') }}" style="display: flex; align-items: center;">
+                    @csrf
+                    <input class="input" style="border: black; width: 18rem; margin-right: 5px;" name="search" placeholder="O que procura na Zapolla?" id="valorPesquisa" oninput="productFilter('atual')">
+                    <button type="submit" style="background: white; border: none; padding: 0;">
                         <img src="/img/loupe.png" alt="lupa" height="20" width="20">
                     </button>
-                </div>
+                </form>
             </div>
 
             <div class="nav__btns">
-
-                <div class="nav__search" id="nav-search">
-                    <a href="/shop"><i class="bx bx-search"></i></a>
-                </div>
                 @guest
                 <div class="login__toggle" id="login-toggle">
                     <i class="bx bx-user"> </i>
@@ -92,63 +89,83 @@
 
             </div>
         </div>
+        <div class="nav__underline-brand"></div>
+        <nav class="nav__list-row">
+            <ul class="main-list container">
+                <li>
+                    <a href="{{ route('shop', ['search' => 'Ferramentas']) }}">Ferramentas<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="{{ route('shop', ['search' => 'Furadeira']) }}">Furadeira</a></li>
+                        <li><a href="{{ route('shop', ['search' => 'Martelete']) }}">Martelete</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('shop', ['search' => 'Chuveiro']) }}">Chuveiros<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="{{ route('shop', ['search' => 'Ducha']) }}">Ducha</a></li>
+                        <li><a href="{{ route('shop', ['search' => 'Chuveiro elétrico']) }}">Chuveiro elétrico</a></li>
+                        <li><a href="{{ route('shop', ['search' => 'Chuveiro a gás']) }}">Chuveiro a gás</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('shop', ['search' => 'Porta']) }}">Portas<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="{{ route('shop', ['search' => 'Porta de madeira']) }}">Portas de madeira</a></li>
+                        <li><a href="{{ route('shop', ['search' => 'Porta de vidro']) }}">Portas de vidro</a></li>
+                        <li><a href="{{ route('shop', ['search' => 'Porta de alumínio']) }}">Portas de alumínio</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('shop', ['search' => 'Materiais']) }}">Pregos e Parafusos<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="{{ route('shop', ['search' => 'Prego']) }}">Pregos</a></li>
+                        <li><a href="{{ route('shop', ['search' => 'Parafusos']) }}">Parafusos</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('shop', ['search' => 'construção']) }}">Materiais de Construção<i class='bx bxs-chevron-down'></i></a>
+                    <ul class="secondary-list">
+                        <li><a href="{{ route('shop', ['search' => 'Cimento']) }}">Cimento</a></li>
+                        <li><a href="{{ route('shop', ['search' => 'Argamassa']) }}">Argamassa</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ route('shop', ['search' => '']) }}">Diversos</a></li>
+            </ul>
+        </nav>
     </header>
-    <!--=============== CART ===============-->
-    <div class="cart" id="cart">
-        <i class="bx bx-x cart__close" id="cart-close"></i>
-        
-        <h2 class="cart__title-center">Carrinho</h2>
+    <!--=============== LOGIN ===============-->
+    <div class="login" id="login">
+        <i class="bx bx-x login__close" id="login-close"></i>
 
-        @if (isset($dados))
-        <div class="cart__container">
-            @foreach ($dados['produtosNoCarrinho'] as $cart)
-            <article class="cart__card">
-                <div class="cart__box">
-                    <img src="/img/product/{{$cart->imagem_produto}}" alt="" class="cart__img">
-                </div>
-                <div class="cart__details">
-                    <h3 class="cart__title">{{$cart->nome_produto}}</h3>
-                    <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box" onclick="countProduct('-', {{ $cart->id }})">
-                                <i class="bx bx-minus"></i>
-                            </span>
+        <h2 class="login__title-center">Login</h2>
 
-                            <span class="cart__amount-number" id="CountProductMain{{ $cart->id }}">{{ $cart->quantidade_car }}</span>
-                            <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
-                            <span class="cart__amount-box" onclick="countProduct('+', {{ $cart->id }})">
-                                <i class="bx bx-plus"></i>
-                            </span>
-                        </div>
-                              
-                            <input type="hidden" name="quantidade_car" id="countProductMain{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
-                            <input type="hidden" name="id" value="{{ $cart->id }}">
-                            
-                        <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
-                        </form>
-                    </div>
-                </div>
-            </article>
-            @endforeach
-        </div>
+        <x-validation-errors class="mb-4" />
 
-        <div class="cart__prices">
-            <span class="cart__prices-item" id="quantidadeProdutos">{{ $dados['count'] }} Produtos</span>
-            <span class="cart__prices-total" id="total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
-        </div>
-        @else
-        <div class="cart__container">
-            <div style="display: flex; justify-content: center;">Carrinho vazio!</div> 
-        </div>
-        <div class="cart__prices">
-            <span class="cart__prices-item">0 Produtos</span>
-            <span class="cart__prices-total">Total R$ 0</span>
-        </div>
-        @endif
+        <form method="POST" action="{{ route('login') }}" class="login__form grid">
+            @csrf
+            <div class="login__content">
+                <label for="email" value="{{ __('Email') }}" class="login__label">Email</label>
+                <input id="email" class="login__input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
+            </div>
+
+            <div class="login__content">
+                <label for="password" value="{{ __('Password') }}" class="login__label">Senha</label>
+                <input id="password" class="login__input" type="password" name="password" required autocomplete="current-password">
+            </div>
+            <div class="block mt-4">
+                <label for="remember_me" class="flex items-center">
+                    <x-checkbox id="remember_me" name="remember" />
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Lembrar de mim') }}</span>
+                </label>
+            </div>
+            <div>
+                <button type="submit" class="button" onclick="verifyLogin()">Entrar</button>
+            </div>
+
+            <div>
+                <p class="signup">Nãe é cadastrado? <a href="/cadastroPage">Cadastrar-se agora.</a></p>
+            </div>
+        </form>
     </div>
         @if(session('msg'))
         <input type="hidden" id="msg" value="{{ session('msg') }}">
@@ -178,9 +195,8 @@
             }
         </script>         
         @endif
-    <!--=============== LOGIN ===============-->
 
-    <main> 
+    <main class="main-content"> 
         @if(session('msg'))
         <input type="hidden" id="msg" value="{{ session('msg') }}">
         <script>
@@ -202,10 +218,11 @@
         <div class="footer__container container grid">
             <!--FOOTER CONTEUDO 1-->
             <div class="footer__content">
-                <a href="#" class="footer__logo">
-                    <i class="bx bxs-shopping-bags footer__logo-icon"></i> Zapolla
+                <h3>
+                <a class="footer__logo">
+                    <i class="bx bxs-shopping-bags footer__logo-icon"></i>Zapolla
                 </a>
-
+                </h3>
                 <p class="footer__description">Aproveite <br> as compras!</p>
 
                 <div class="footer__social">
@@ -217,17 +234,16 @@
 
             <!--FOOTER CONTEUDO 2-->
             <div class="footer__content">
-                <h3 class="footer__tittle">Sobre</h3>
+                <h3 class="footer__tittle" style="color:var(--text-color);">Sobre</h3>
 
                 <ul class="footer__links">
                     <li><a href="/contato" class="footer__link">Fale Conosco</a></li>
-                    <li><a href="/contato" class="footer__link">Suporte</a></li>
                 </ul>
             </div>
 
             <!--FOOTER CONTEUDO 3-->
             <div class="footer__content">
-                <h3 class="footer__tittle">Nossos Serviços</h3>
+                <h3 class="footer__tittle" style="color:var(--text-color);">Nossos Serviços</h3>
 
                 <ul class="footer__links">
                     <li><a href="/shop" class="footer__link">Shop</a></li>
@@ -237,11 +253,11 @@
 
             <!--FOOTER CONTEUDO 4-->
             <div class="footer__content">
-                <h3 class="footer__tittle">Nossa Empresa</h3>
+                <h3 class="footer__tittle" style="color:var(--text-color);">Nossa Empresa</h3>
 
                 <ul class="footer__links">
                     <li><a href="/sobre" class="footer__link">Quem Somos</a></li>
-                    <li><a href="/registro" class="footer__link">Registro</a></li>
+                    <li><a href="/cadastroPage" class="footer__link">Registro</a></li>
                 </ul>
             </div>
         </div>

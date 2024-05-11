@@ -169,12 +169,12 @@
             <div class="newsletter__container container">
                 <h2 class="section__title">Newsletter</h2>
                 <p class="newsletter__description">
-                    Fique por dentro de promoções, novas coleções ou novos produtos. Apenas cadastrando o seu Email.
+                    Fique por dentro de promoções, novas coleções ou novos produtos. Apenas informando seu numero.
                 </p>
 
                 <form action="" class="newsletter__form">
-                    <input type="email" placeholder="Digite seu email..." class="newsletter__input">
-                    <button class="button">Inscrever</button>
+                    <input type="email" placeholder="Digite seu numero de telefone..." class="newsletter__input">
+                    <button class="button">Enviar</button>
                 </form>
             </div>
         </section>

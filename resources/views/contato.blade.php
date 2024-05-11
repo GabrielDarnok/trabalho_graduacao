@@ -7,7 +7,7 @@
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== CONTACT US ===============-->
-        <section class="contact section container">
+        <section class="shop section container">
             <h2 class="breadcrumb__title">Contato</h2>
             <h3 class="breadcrumb__subtitle">Inicio > <span>Contato</span></h3>
             <h1 class="contact__description">Gostaria de entrar em contato ? só mandar uma mensagem ou se estiver <br> interessado em trabalhar
@@ -39,34 +39,6 @@
                         </div>
                     </div>
                 </div>
-
-                <form action="" class="contact__form grid">
-                    <div class="contact__inputs grid">
-                        <div class="contact__content">
-                             <label for="" class="contact__label">Nome</label>
-                             <input type="text" class="contact__input">
-                        </div>
-
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input">
-                       </div>
-                    </div>
-
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Assunto</label>
-                        <input type="text" class="contact__input">
-                   </div>
-
-                   <div class="contact__content">
-                        <label for="" class="contact__label">Mensagem</label>
-                        <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
-                   </div>
-
-                   <div>
-                        <a href="#" class="button">Enviar</a>
-                   </div>
-                </form>
             </div>
         </section>
     </main>

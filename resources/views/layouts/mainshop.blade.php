@@ -30,14 +30,13 @@
                 <img src="/img/logo_zap.png" alt="Zapolla">
             </a>
             
-            <div class="nav__search-box" style="display: flex; align-items: center;">
-                <form method="GET" action="{{ route('shop') }}" style="display: flex; align-items: center;">
-                    @csrf
-                    <input class="input" style="border: black; width: 18rem; margin-right: 5px;" name="search" placeholder="O que procura na Zapolla?" id="valorPesquisa" oninput="productFilter('atual')">
-                    <button type="submit" style="background: white; border: none; padding: 0;">
+            <div class="nav__search-box">
+                <div style="display: flex; justify-content: space-between; width: 100%">
+                    <input class="input" style="border: black; width: 18rem" name="search" value="{{$busca}}" placeholder="O que procura na Zapolla?" id="valorPesquisa" oninput="productFilter('atual')">
+                    <button style="background: white;" onclick="productFilter()">
                         <img src="/img/loupe.png" alt="lupa" height="20" width="20">
                     </button>
-                </form>
+                </div>
             </div>
 
             <div class="nav__btns">
@@ -84,8 +83,8 @@
                     <i class="bx bx-grid-alt"> </i>
                 </div>
 
-                <div>
-                    <img src="/img/moon.png" id="moon">
+                <div class="nav__togg">
+                    <i class="bx bxs-moon" id="moon"> </i>
                 </div>
 
             </div>

@@ -73,13 +73,14 @@ class redirectController extends Controller
 
         return view('user.registro_end', ['dados' => $dados]);
     }
-    public function shop(){
-        
+    public function shop(Request $request) {
+        $busca = $request->input('search');
+    
         $dados = parent::verificaUsuarioLog();
-
+    
         $produtcs = Product::all();
-
-        return view('shop', ['products' => $produtcs, 'dados' => $dados]);
+    
+        return view('shop', ['products' => $produtcs, 'dados' => $dados, 'busca' => $busca]);
     }
     public function sobre(){
         
