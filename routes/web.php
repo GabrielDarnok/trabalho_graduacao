@@ -64,14 +64,6 @@ Route::post('/procura/product', [ProductController::class, 'busca_product'])->na
 
 Route::get('/shop/product/{id}', [ProductController::class, 'show_product']);
 
-Route::post('/user/endereco', [UserController::class, 'cadastrar_endereco']);
-
-Route::get('/endereco/edit/{id}', [UserController::class, 'edit_endereco']);
-
-Route::post('/endereco/update/{id}', [UserController::class, 'update_endereco']);
-
-Route::delete('/endereco/{endereco}', [UserController::class, 'destroy_endereco'])->name('endereco.destroy');
-
 Route::post('/car/add_car', [CarrinhoController::class, 'add_carrinho']);
 
 Route::delete('/car/delete/{id}', [CarrinhoController::class, 'destroy_car'])->name('car.destroy');

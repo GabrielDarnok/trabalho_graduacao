@@ -58,15 +58,19 @@
                 <div class="checksider__container">
                     <h3 class="check__title">Checkout</h3>
                     <div class="filter__content">
-                        <h3 class="check__subtitle">Subtotal</h3> <span id="subTotal">R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
-                        <h3 class="check__subtitle">Frete</h3> <span>R$ 20,00</span>
-                        <h3 class="check__subtitle">Total</h3> <span id="totalValue">R$ {{ number_format($dados['subtotal'] + 20, 2, ',', '.') }}</span>
+                        @if($dados['subtotal'] != 0)
+                            <h3 class="check__subtitle">Total</h3> 
+                            <span id="totalValue">R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
+                            <br>
+                            <div style="display:flex; justify-content:center;">
+                                <a href="/checkout" class="button">Confirmar Pedido</a>
+                            </div>
+                        @else
+                            <h3 class="check__subtitle">Ops</h3> 
+                            <span id="totalValue">Você ainda não tem itens adicionados. Deseja ir as compras ? <a href="/shop" class="btn">Produtos</a></span>
+                        @endif
                     </div>
                 @endif
-                <br>
-                <div style="display:flex; justify-content:center;">
-                    <a href="/checkout" class="button">Confirmar Pedido</a>
-               </div>
                 </div>
             </div>
         </section>
@@ -87,7 +91,7 @@
     <script>
         function countProductCart(operation, id){
             var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            const subTotalElement = document.getElementById("subTotal");
+            
             const totalValueElement = document.getElementById("totalValue");
             const quantidadeProdutosElement = document.getElementById("quantidadeProdutosCart");
             const countProduct = document.getElementById('countProduct'+id);
@@ -126,10 +130,9 @@
                 },
                 success: function(response){
                     console.log(response);
-                    console.log(response['subtotal']);
-                    subTotalElement.textContent = response['subtotal'].toLocaleString('pt-BR', opcoes);
+                    
                     quantidadeProdutosElement.textContent = response['count'] + " Produtos";
-                    totalValueElement.textContent = (response['subtotal'] + 20).toLocaleString('pt-BR', opcoes);
+                    totalValueElement.textContent = (response['subtotal']).toLocaleString('pt-BR', opcoes);
                 },
                 error: function(xhr, status, error) {
                     console.log('erro');

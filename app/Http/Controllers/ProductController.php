@@ -20,8 +20,6 @@ class ProductController extends Controller
             $product->descricao_produto = $request->descricao_produto;
             $product->valor_produto = $request->valor_produto;
             $product->quantidade_estoq = $request->quantidade_estoq;
-            $product->tamanho_roupa = $request->tamanho_roupa;
-            $product->cor_produto = $request->cor_produto;
             $product->categoria_produto = $request->categoria_produto;
         
             //image upload
@@ -34,9 +32,9 @@ class ProductController extends Controller
         
                 $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
             
-                $request->imagem_produto->move(public_path('img/product'), $imageName);
+                $request->imagem_produto_1->move(public_path('img/product'), $imageName);
         
-                $product->imagem_produto = $imageName;
+                $product->imagem_produto_1 = $imageName;
             }
             if($request->hasFile('imagem_produto_2') && $request->file('imagem_produto_2')->isValid()){
                 
@@ -127,15 +125,6 @@ class ProductController extends Controller
             //Juntando os dados do request
 
             $dados = $request->all();
-            if (isset($dados['tamanho_roupa']) && is_array($dados['tamanho_roupa'])) {
-                $tamanhos = implode(',', $dados['tamanho_roupa']);
-                $dados['tamanho_roupa'] = $tamanhos;
-            }
-            if (isset($dados['cor_produto']) && is_array($dados['cor_produto'])) {
-                $tamanhos = implode(',', $dados['cor_produto']);
-                $dados['cor_produto'] = $tamanhos;
-            }
-
             //image upload update
 
             if($request->hasFile('imagem_produto') && $request->file('imagem_produto')->isValid()){
@@ -198,8 +187,6 @@ class ProductController extends Controller
 
     public function busca_product(Request $request){
         $busca = $request->search;
-        $tamanhos = $request->tamanhos;
-        $estilos = $request->estilos;
         $categorias = $request->categorias;
         
         $message = 'Nenhum produto encontrado com os critérios de busca :(';
@@ -210,16 +197,6 @@ class ProductController extends Controller
             $query->where('nome_produto', 'like', '%' . $busca . '%');
         }
         
-        if (!empty($tamanhos)) {
-            $query->where(function ($subquery) use ($tamanhos) {
-                foreach ($tamanhos as $tamanho) {
-                    $subquery->orWhere('tamanho_roupa', 'like', '%' . $tamanho . '%');
-                }
-            });
-        }
-        if (!empty($estilos)) {
-            $query->whereIn('categoria_produto', $estilos);
-        }
         if (!empty($categorias)) {
             if (in_array('-', $categorias)){               
                 $query->orderBy('valor_produto', 'asc'); //menor preço
