@@ -34,7 +34,7 @@
                 <div style="display: flex; justify-content: space-between; width: 100%">
                     <input class="input" style="border: black; width: 18rem" name="search" placeholder="O que procura na Zapolla?" id="valorPesquisa" oninput="productFilter('atual')">
                     <button style="background: white;" onclick="productFilter()">
-                        <img src="/img/loupe.png" alt="lupa" height="20" width="20">
+                        <i class="bx bx-search-alt-2" style="font-size: 25px; color: #5f5f5f;"></i>
                     </button>
                 </div>
             </div>
