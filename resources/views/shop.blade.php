@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div> -->
-            <h3 class="shop__search">Resultados para: </h3>
+            <h3 class="shop__search">Resultados para: {{ $_GET['search'] }}</h3>
             @if(isset($message))
 				<p style="text-align: center;">{{ $message }}</p>
             @elseif(isset($products))
@@ -47,11 +47,11 @@
             </div>
             <div class="pagination">
                 <i class="bx bx-chevron-left pagination__icon" id="anterior" onclick= "productFilter('anterior')"></i>
+                <i class="bx bx-chevrons-left pagination__icon" id="primeira" onclick="productFilter(&quot;primeira&quot;)"></i>
 
-                <span class="first-page" id="primeira" onclick= 'productFilter("primeira")' ><<</span>
                 <span class="atual current" id="atual" onclick= "productFilter('atual')">1</span>
                 <span class="preview" id="atual-proxima" style=" display:none " onclick= "productFilter('proxima')">2</span>
-                <span>&middot; &middot; &middot;</span>
+                <span class="pagination__icon">&middot; &middot; &middot;</span>
                 <span class="last-page" id="ultima" onclick= "productFilter('ultima')">1</span>
 
                 <i class="bx bx-chevron-right pagination__icon" id="proxima" onclick= "productFilter('proxima')"></i>

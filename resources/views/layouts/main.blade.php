@@ -35,7 +35,7 @@
                     @csrf
                     <input class="input" style="border: black; width: 18rem; margin-right: 5px;" name="search" placeholder="O que procura na Zapolla?" id="valorPesquisa" oninput="productFilter('atual')">
                     <button type="submit" style="background: white; border: none; padding: 0;">
-                        <img src="/img/loupe.png" alt="lupa" height="20" width="20">
+                        <i class="bx bx-search-alt-2" style="font-size: 25px; color: #5f5f5f;"></i>
                     </button>
                 </form>
             </div>
@@ -43,12 +43,12 @@
             <div class="nav__btns">
                 @guest
                 <div class="login__toggle" id="login-toggle">
-                    <i class="bx bx-user"> </i>
+                    <i class='bx bxs-user'></i>
                 </div>
                 @endguest
                 @auth
                 <div>
-                    <i class="bx bx-user" class="user__pic" id="userPic"> </i> 
+                    <i class="bx bxs-user" class="user__pic" id="userPic"> </i> 
                 </div>
                 <div class="sub-menu-wrap" id="subMenu">
 
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="nav__shop" id="cart-shop">
-                    <i class="bx bx-shopping-bag"> </i>
+                    <i class='bx bxs-cart' ></i>
                 </div>
                 @endauth
 

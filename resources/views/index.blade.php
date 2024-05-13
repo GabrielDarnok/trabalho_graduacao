@@ -43,12 +43,6 @@
                         <div class="home__content grid">
                             <div class="home__group">
                                 <img src="/img/loja.jpg" alt="" class="home__img">
-                                <div class="home__indicator"></div>
-            
-                                <div class="home__details-img">
-                                    <h4 class="home__details-title">Moletom Sólido Cropped</h4>
-                                    <div class="span home__details-subtitle">You Matter</div>
-                                </div>
                             </div>
             
                             <div class="home__data">
