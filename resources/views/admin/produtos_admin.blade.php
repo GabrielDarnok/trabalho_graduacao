@@ -91,22 +91,38 @@
                   >
                     <thead>
                       <tr>
-                        <th>ASN</th>
-                        <th>Tipos de vuln</th>
-                        <th>Vulnerabilidades detectadas</th>
-                        <th>Quantidade de ips testados</th>
-                        <th>Data</th>
+                        <th>Imagem principal</th>
+                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Quantidade de imagens</th>
+                        <th>Quantidade em estoque</th>
+                        <th>Valor do produto</th>
+                        <th>Data de inserção</th>
+                        <th>Ação</th>
                       </tr>
                     </thead>
+                    @if(isset($products))
+                    @foreach ($products as $product)
                     <tbody>
                       <tr>
-                        <td>52863</td>
-                        <td>3</td>
-                        <td>45</td>
-                        <td>1980</td>
-                        <td>25/04/2024</td>
+                        <td><img src="/img/product/{{ $product->imagem_produto_1 }}" width="50" height="50"></td>
+                        <td>{{ $product->nome_produto }}</td>
+                        <td>{{ $product->categoria_produto }}</td>
+                        <td>{{ count(explode(',', $product->imagem_produto_1)) }}</td>
+                        <td>{{ $product->quantidade_estoq }}</td>
+                        <td>{{ number_format($product->valor_produto, 2, ',', '.') }}</td>
+                        <td>{{ $product->created_at }}</td>
+                        <td>
+                            <form id="deleteForm{{ $product->id }}" action="{{ route('product.destroy', ['id' => $product->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <a type="button" class="bi bi-trash-fill" data-toggle="modal" data-target="#confirmarExcluir" data-product-id="{{ $product->id }}" title="Excluir"></a>
+                            </form>
+                        </td>
                       </tr>
                     <tbody>
+                    @endforeach
+                    @endif
                   </table>
                 </div>
               </div>
@@ -136,7 +152,7 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--====<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script>
         var deleteRoute = "{{ route('product.destroy', ['id' => ':id']) }}";
@@ -253,5 +269,5 @@
 
             corpoDaTabela.innerHTML = htmlLinhas;
         }            
-    </script>
+    </script>-->
 @endsection

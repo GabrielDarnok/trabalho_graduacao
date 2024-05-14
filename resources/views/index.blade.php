@@ -29,8 +29,8 @@
                                 <p class="home__description">CARRINHO DE MÃO por apenas R$249,90</p>
             
                                 <div class="home__buttons">
-                                    <a href="/shop" class="button">Comprar Agora</a>
-                                    <a href="/shop" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
+                                    <a href="{{ route('shop', ['search' => 'Carrinho de mão']) }}" class="button">Comprar Agora</a>
+                                    <a href="{{ route('shop', ['search' => 'Carrinho de mão']) }}" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
                                     </i></a>
                                 </div>
             
@@ -59,34 +59,6 @@
                             </div>
                         </div>
                     </section>
-            
-                    <!--Slide 3 aqui-->
-                    <!-- <section class="swiper-slide">
-                        <div class="home__content grid">
-                            <div class="home__group">
-                                <img src="/img/slide-1.png" alt="" class="home__img">
-                                <div class="home__indicator"></div>
-            
-                                <div class="home__details-img">
-                                    <h4 class="home__details-title">Calça Jeans Cargo Denim</h4>
-                                    <div class="span home__details-subtitle">You Matter</div>
-                                </div>
-                            </div>
-            
-                            <div class="home__data">
-                                <h3 class="home__subtitle">ITEM POPULAR</h3>
-                                <h1 class="home__title">ANDE COM ESTILO COM A GENTE!</h1>
-                                <p class="home__description">Criado para usar no dia a dia ou naquela saida com as amigas, você irá se destacar a onde você esteja.</p>
-            
-                                <div class="home__buttons">
-                                    <a href="/shop" class="button">Comprar Agora</a>
-                                    <a href="/shop" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
-                                    </i></a>
-                                </div>
-            
-                            </div>
-                        </div>
-                    </section> -->
                 </div>
                 <div class="swiper-pagination"></div>
               </div>

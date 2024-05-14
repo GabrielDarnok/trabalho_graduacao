@@ -182,6 +182,22 @@ $(document).ready(function(){
     });
 });
 
+var productIdToDelete; // Variável para armazenar o ID do produto a ser excluído
+
+// Função para capturar o ID do produto quando o modal é mostrado
+$('#confirmarExcluir').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Botão que acionou o modal
+    productIdToDelete = button.data('product-id'); // Obtém o ID do produto do atributo data-product-id do botão
+});
+
+// Função para submeter o formulário de exclusão quando o botão "Excluir" é clicado
+$('#confirmarExclusaoBtn').on('click', function () {
+    // Se productIdToDelete for definido (ou seja, se um botão de exclusão foi clicado)
+    if (productIdToDelete) {
+        $('#deleteForm' + productIdToDelete).submit(); // Submete o formulário correspondente ao produto
+    }
+});
+
 // Config para iniciar a tabela
 $(document).ready(function () {
     $(".data-table").each(function (_, table) {

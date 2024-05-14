@@ -63,6 +63,16 @@
                             <p>Meu perfil</p>
                             <span>></span>
                         </a>
+                        @auth
+                        @if(auth()->user()->role == "admin")
+                            <a href="/dashboard_admin" class="sub-menu-link">
+                                <i class="bx bx-cog"> </i>
+                                <p>Admin page</p>
+                                <span>></span>
+                            </a>
+                        </li>
+                        @endif
+                        @endauth
                         <a href="#" class="sub-menu-link">
                             <i class="bx bx-package"> </i>
                             <p>Meus Pedidos</p>
@@ -87,7 +97,6 @@
                 <div>
                     <img src="/img/moon.png" id="moon">
                 </div>
-
             </div>
         </div>
         <div class="nav__underline-brand"></div>

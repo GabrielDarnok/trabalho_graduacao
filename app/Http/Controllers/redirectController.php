@@ -93,27 +93,31 @@ class redirectController extends Controller
         if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
             return redirect('/');
         }
+
         return view('admin.dashboard_admin');
     }
 
     public function relatorioAdmin(){
-        if(!isset(auth()->user()->id) || auth()->user()->role == "admin"){
+        if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
             return redirect('/');
         }
         return view('admin.relatorio_admin');
     }
 
     public function relatorioScanAdmin(){
-        if(!isset(auth()->user()->id) || auth()->user()->role == "admin"){
+        if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
             return redirect('/');
         }
         return view('admin.relatorio-scan_admin');
     }
 
     public function produtosAdmin(){
-        if(!isset(auth()->user()->id) || auth()->user()->role == "admin"){
+        if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
             return redirect('/');
         }
-        return view('admin.produtos_admin');
+
+        $produtcs = Product::all();
+
+        return view('admin.produtos_admin', ['products'=>$produtcs]);
     }
 }

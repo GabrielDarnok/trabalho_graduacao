@@ -84,7 +84,7 @@
             </li>
             <li>
               <a href="/produtos_admin" class="nav-link px-3">
-                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span class="me-2"><i class="bi bi-box-seam"></i></span>
                 <span>Produtos</span>
               </a>
             </li>
@@ -161,7 +161,7 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <a href="/excluir/" class="btn btn-danger">Excluir</a>
+            <button type="button" class="btn btn-danger" id="confirmarExclusaoBtn">Excluir</button>
             </div>
         </div>
       </div>

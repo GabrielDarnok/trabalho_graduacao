@@ -42,7 +42,7 @@
                         <td>1980</td>
                         <td>25/04/2024</td>
                         <td>Em andamento</td>
-                        <td><a href="/excluir/relat/" class="bi bi-trash-fill" data-toggle="modal" data-target="#confirmarExcluir" title="Excluir" title="Download"></a></td>
+                        <td><a href="/excluir/relat/" class="bi bi-trash-fill" data-toggle="modal" data-target="#confirmarExcluir" title="Excluir"></a></td>
                       </tr>
                     <tbody>
                   </table>
