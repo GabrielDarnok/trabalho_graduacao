@@ -1720,7 +1720,9 @@ input {
     text-transform: lowercase;
     font-weight: var(--font-bold);
     letter-spacing: 1px;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     column-gap: .25rem;
     margin-bottom: var(--mb-1);
 }

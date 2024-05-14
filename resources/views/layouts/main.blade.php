@@ -273,7 +273,7 @@
             <div class="footer__content">
                 <h3>
                 <a class="footer__logo">
-                    <i class="bx bxs-shopping-bags footer__logo-icon"></i>Zapolla
+                <i class="fa-solid fa-screwdriver-wrench"></i>Zapolla
                 </a>
                 </h3>
                 <p class="footer__description">Aproveite <br> as compras!</p>

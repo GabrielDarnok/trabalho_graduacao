@@ -268,6 +268,7 @@ $(document).ready(function() {
     if (isLayoutsOpen === 'true') {
         $('#layouts').addClass('show');
     }
+
 });
 
 

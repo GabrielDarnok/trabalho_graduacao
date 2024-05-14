@@ -142,17 +142,8 @@
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </footer>
-     <!--=============== SCROLL UP ===============-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
-    </a>
     
-    <!--=============== SWIPER JS ===============-->
-    <script src="/js/swiper-bundle.min.js"></script>
-
-    <!--=============== JS ===============-->
-    <script src="/js/main.js"></script>
-    <!--====<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script>
         var deleteRoute = "{{ route('product.destroy', ['id' => ':id']) }}";
@@ -203,7 +194,7 @@
               }
 
               if(permissao == 0){
-                console.log(imagem_produto_1);
+                console.log(imagem_produtoSt.files[0]);
 
                 var formData = new FormData();
                 formData.append('nome_produto', nome_produto);
@@ -269,5 +260,5 @@
 
             corpoDaTabela.innerHTML = htmlLinhas;
         }            
-    </script>-->
+    </script>  
 @endsection
