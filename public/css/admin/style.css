@@ -40,7 +40,7 @@ button {
   }
 }
 .bg-custom {
-  background-color: #1c2434;
+  background-color: #0059b9;
 }
 
 .bg-home {
@@ -100,13 +100,13 @@ table a:hover{
 .nav-link.active {
   margin-left: 5px;
   width: 90%;
-  background-color: #b0b3b68c;
+  background-color: #0059b9;
   color: #fff;
   border-radius: 5px;
 }
 
 .link-nav {
-  color: #939696;
+  color: #ffffff;
   font-weight: 400;
   padding: .5rem 1rem;
   margin-right: .5rem;
@@ -115,5 +115,18 @@ table a:hover{
 }
 
 .link-nav:hover {
-  color: #c2c4c5;
+  color: #da001b;
 }
+
+.nav-link:hover {
+  color: #da001b !important;
+}
+
+.text-muted {
+  color: #0059b9 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+}
+

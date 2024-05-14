@@ -794,13 +794,14 @@ input {
 }
 
 .shop__items {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
 }
 
 .shop__content {
     height: 17.9rem;
-    width: 18.2rem;
+    width: 17.2rem;
     position: relative;
     background-color: var(--container-color);
     padding: 2rem 0;
