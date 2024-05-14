@@ -20,7 +20,15 @@
                     </div>
                 </div>
             </div> -->
-            <h3 class="shop__search">Resultados para: {{ $_GET['search'] }}</h3>
+            @php
+                $search = $_GET['search'] ?? null;
+            @endphp
+
+            @if($search !== null)
+                <h3 class="shop__search">Resultados para: {{ $search }}</h3>
+            @else
+                <h3 class="shop__search">Resultados para: </h3>
+            @endif
             @if(isset($message))
 				<p style="text-align: center;">{{ $message }}</p>
             @elseif(isset($products))
