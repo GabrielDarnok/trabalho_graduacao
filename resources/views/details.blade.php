@@ -34,7 +34,20 @@
             <h3 class="breadcrumb__subtitle">Inicio > <span>Detalhes</span></h3>
 
             <div class="details__container grid">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="swiper home-swiper" style="width: 500px;">
+                    <div class="swiper-wrapper">
+                        <!--Slide 1 aqui-->
+                        @for($i = 1; $i <= 4; $i++)
+                            @if(isset($Product->{"imagem_produto_$i"}))
+                                <section class="swiper-slide">
+                                    <img src="/img/product/{{ $Product->{"imagem_produto_$i"} }}" class="d-block w-100" alt="...">
+                                </section>
+                            @endif
+                        @endfor    
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         @for($i = 1; $i <= 4; $i++)
                             @if(isset($Product->{"imagem_produto_$i"}))
@@ -54,7 +67,7 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     @endif
-                </div>
+                </div> -->
 
                 <div class="product__info">
                     <h3 class="details__subtitle">{{ $Product->nome_produto }}</h3>
@@ -192,7 +205,6 @@
     <a href="#" class="scrollup" id="scroll-up">
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
-    <!--=============== LIGHTBOX===============-->
     <script>
         
         const productItems = document.querySelectorAll(".product__img"),
