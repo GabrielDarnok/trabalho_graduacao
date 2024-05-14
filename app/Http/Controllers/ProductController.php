@@ -24,7 +24,7 @@ class ProductController extends Controller
         
             //image upload
         
-            if($request->hasFile('imagem_produto') && $request->file('imagem_produto')->isValid()){
+            if($request->hasFile('imagem_produto_1') && $request->file('imagem_produto_1')->isValid()){
                 
                 $requestImage = $request->imagem_produto;
         
@@ -35,42 +35,6 @@ class ProductController extends Controller
                 $request->imagem_produto_1->move(public_path('img/product'), $imageName);
         
                 $product->imagem_produto_1 = $imageName;
-            }
-            if($request->hasFile('imagem_produto_2') && $request->file('imagem_produto_2')->isValid()){
-                
-                $requestImage = $request->imagem_produto_2;
-        
-                $extension = $requestImage->extension();
-        
-                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            
-                $request->imagem_produto_2->move(public_path('img/product'), $imageName);
-        
-                $product->imagem_produto_2 = $imageName;
-            }
-            if($request->hasFile('imagem_produto_3') && $request->file('imagem_produto_3')->isValid()){
-                
-                $requestImage = $request->imagem_produto_3;
-        
-                $extension = $requestImage->extension();
-        
-                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            
-                $request->imagem_produto_3->move(public_path('img/product'), $imageName);
-        
-                $product->imagem_produto_3 = $imageName;
-            }
-            if($request->hasFile('imagem_produto_4') && $request->file('imagem_produto_4')->isValid()){
-                
-                $requestImage = $request->imagem_produto_4;
-        
-                $extension = $requestImage->extension();
-        
-                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            
-                $request->imagem_produto_4->move(public_path('img/product'), $imageName);
-        
-                $product->imagem_produto_4 = $imageName;
             }
         
             $product->save();
