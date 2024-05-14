@@ -26,7 +26,7 @@ class ProductController extends Controller
         
             if($request->hasFile('imagem_produto_1') && $request->file('imagem_produto_1')->isValid()){
                 
-                $requestImage = $request->imagem_produto;
+                $requestImage = $request->imagem_produto_1;
         
                 $extension = $requestImage->extension();
         
