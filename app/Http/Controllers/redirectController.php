@@ -132,6 +132,6 @@ class redirectController extends Controller
     }
 
     public function changePassword(){
-        return view('auth.confirm-password');
+        return view('auth.forgot-password');
     }
 }

@@ -50,10 +50,6 @@ Route::middleware([
     })->name('index');
 });
 
-Route::get('/confirm-password', [redirectController::class, 'changePassword'])
-    ->middleware(['auth'])
-    ->name('password.confirm');
-
 Route::post('/products', [ProductController::class, 'store']);
 
 Route::delete('/admin/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('auth');;
@@ -81,3 +77,5 @@ Route::get('/relatorio_admin', [redirectController::class,'relatorioAdmin']);
 Route::get('/relatorio-scan_admin', [redirectController::class,'relatorioScanAdmin']);
 
 Route::get('/produtos_admin', [redirectController::class,'produtosAdmin']);
+
+Route::get('/forgot_password', [redirectController::class,'changePassword']);
