@@ -50,11 +50,13 @@ Route::middleware([
     })->name('index');
 });
 
-Route::get('/admin', [redirectController::class, 'admin']);
+Route::get('/confirm-password', [redirectController::class, 'changePassword'])
+    ->middleware(['auth'])
+    ->name('password.confirm');
 
 Route::post('/products', [ProductController::class, 'store']);
 
-Route::delete('/admin/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+Route::delete('/admin/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('auth');;
 
 Route::get('/admin/edit/{id}', [ProductController::class, 'edit']);
 
@@ -70,9 +72,7 @@ Route::delete('/car/delete/{id}', [CarrinhoController::class, 'destroy_car'])->n
 
 Route::post('/edit/car', [CarrinhoController::class, 'edit_carrinho']);
 
-Route::get('/checkout', [redirectController::class, 'checkout']);
-
-Route::post('/validacep', [Controller::class,'validaCEP']);
+Route::get('/message', [redirectController::class, 'messageWhats']);
 
 Route::get('/dashboard_admin', [redirectController::class,'dashboardAdmin']);
 

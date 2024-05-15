@@ -89,6 +89,16 @@ class redirectController extends Controller
         return view('cadastroPage',['dados' => $dados]);
         #}
     }
+
+    public function messageWhats(){
+        $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
+        return redirect()->back()->with('msg', 'Encaminharemos uma mensagem em seu whatsapp para confirmar seu pedido.');
+    }
+
     public function dashboardAdmin(){
         if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
             return redirect('/');
@@ -119,5 +129,9 @@ class redirectController extends Controller
         $produtcs = Product::all();
 
         return view('admin.produtos_admin', ['products'=>$produtcs]);
+    }
+
+    public function changePassword(){
+        return view('auth.confirm-password');
     }
 }

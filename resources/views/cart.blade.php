@@ -63,7 +63,7 @@
                             <span id="totalValue">R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
                             <br>
                             <div style="display:flex; justify-content:center;">
-                                <a href="/checkout" class="button">Confirmar Pedido</a>
+                                <a href="/message" class="button">Confirmar Pedido</a>
                             </div>
                         @else
                             <h3 class="check__subtitle">Ops</h3> 

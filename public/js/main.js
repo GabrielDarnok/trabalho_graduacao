@@ -149,17 +149,6 @@ document.addEventListener('click', function (event) {
     }
 });
 
-/*=============== Profile Toggle ===============*/
-
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleButton = document.getElementById("toggleFields");
-    const fieldsToToggle = document.getElementById("fieldsToToggle");
-
-    toggleButton.addEventListener("click", function () {
-        fieldsToToggle.style.display = fieldsToToggle.style.display === "none" ? "block" : "none";
-    });
-});
-
 /*===============Review ===============*/
 const ratebtn = document.querySelector("button");
 const post = document.querySelector(".post");
