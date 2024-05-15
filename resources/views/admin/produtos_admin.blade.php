@@ -83,7 +83,7 @@
                 <span><i class="bi bi-table me-2"></i></span> Produtos cadastrados
               </div>
               <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive text-center">
                   <table
                     id="example"
                     class="table table-striped data-table"

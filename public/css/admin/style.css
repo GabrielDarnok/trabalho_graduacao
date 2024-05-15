@@ -130,3 +130,17 @@ table a:hover{
   color: #ffffff;
 }
 
+thead tr {
+  color: white;
+  background-color: #0059b9;
+}
+
+th {
+  border-left: 2px solid #ffffff;
+}
+
+td {
+  border-style: unset;
+  vertical-align: middle;
+  border-left: 2px solid #fff;
+}
