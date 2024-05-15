@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="/img/Logo.png" type="image/x-icon">
+    <link rel="icon" href="/img/logo_zap.png" type="image/x-icon">
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!--=============== FONTAWESOME===============-->
@@ -60,12 +60,19 @@
                         <a href="/profile/{{ auth()->user()->id }}" class="sub-menu-link">
                             <i class="bx bx-user-circle"> </i>
                             <p>Meu perfil</p>
-                            <span>></span>
                         </a>
+                        @auth
+                        @if(auth()->user()->role == "admin")
+                            <a href="/dashboard_admin" class="sub-menu-link">
+                                <i class="bx bx-cog"> </i>
+                                <p>Admin page</p>
+                            </a>
+                        </li>
+                        @endif
+                        @endauth
                         <a href="#" class="sub-menu-link">
                             <i class="bx bx-package"> </i>
                             <p>Meus Pedidos</p>
-                            <span>></span>
                         </a>
                         <form action="/logout" method="POST" class="sub-menu-link">
 							@csrf

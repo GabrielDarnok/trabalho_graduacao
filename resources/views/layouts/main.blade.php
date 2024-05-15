@@ -61,14 +61,12 @@
                         <a href="/profile/{{ auth()->user()->id }}" class="sub-menu-link">
                             <i class="bx bx-user-circle"> </i>
                             <p>Meu perfil</p>
-                            <span>></span>
                         </a>
                         @auth
                         @if(auth()->user()->role == "admin")
                             <a href="/dashboard_admin" class="sub-menu-link">
                                 <i class="bx bx-cog"> </i>
                                 <p>Admin page</p>
-                                <span>></span>
                             </a>
                         </li>
                         @endif
@@ -76,7 +74,6 @@
                         <a href="#" class="sub-menu-link">
                             <i class="bx bx-package"> </i>
                             <p>Meus Pedidos</p>
-                            <span>></span>
                         </a>
                         <form action="/logout" method="POST" class="sub-menu-link">
 							@csrf

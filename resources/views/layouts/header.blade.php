@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="/css/admin/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="/css/admin/style.css">
+    <link rel="icon" href="/img/logo_zap.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>@yield('title')</title>
   </head>
