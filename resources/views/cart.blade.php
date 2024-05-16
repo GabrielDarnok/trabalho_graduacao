@@ -11,9 +11,13 @@
             <h2 class="breadcrumb__title">Carrinho</h2>
             <h3 class="breadcrumb__subtitle">Inicio > <span>Carrinho</span></h3>
 
-            <div class="checkout__container grid">
+            <div class="checkout__container">
                 <div class="checksider__container">
-                    <div class="out__prices">
+                    <div class="checkout_title">
+                        <i class='bx bxs-package'></i>
+                        <h3>Produtos</h3>
+                    </div>
+                    <!-- <div class="out__prices">
                         <span class="out__prices-total">CARRINHO</span>
                     @if(isset($dados))
                         <span class="Out__prices-item"  id="quantidadeProdutosCart">{{ $dados['count'] }} Produtos</span>
@@ -21,7 +25,7 @@
                     @foreach ($dados['produtosNoCarrinho'] as $cart)
                     <div class="out__container">
                     <article class="out__card">
-                        <div class="out__box">
+                        <div class="out__box"> 
                             <img src="/img/product/{{ $cart->imagem_produto_1 }}" alt="" class="out__img">
                         </div>
                         <div class="out__details">
@@ -69,8 +73,61 @@
                             <h3 class="check__subtitle">Ops</h3> 
                             <span id="totalValue">Você ainda não tem itens adicionados. Deseja ir as compras ? <a href="/shop" class="btn">Produtos</a></span>
                         @endif
+                    </div> -->
+                    <div class="out__card">
+                        <div class="card__product flex">
+                            <img src="/img/product/20333fb253abb4f1cd5aa2005899661e.jpg" alt="" class="out__img">
+                            <div class="product__describe">
+                                <h3>Nome do produto</h3>
+                                <p>Descrição do produto</p>
+                            </div>
+                        </div>
+                        <div class="card__amount">
+                            <h3>Quantidade</h3>
+                            <div class="out__amount-content">
+                                <span class="out__amount-box">
+                                    <i class="bx bx-minus"></i>
+                                </span>
+    
+                                <span class="out__amount-number" id="CountProduct{{ $cart->id  }}">2</span>
+            
+                                <span class="out__amount-box">
+                                    <i class="bx bx-plus"></i>
+                                </span>
+                            </div>
+                            <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
+                        </div>
+                        <div class="card__product-price">
+                            <h3>Valor à vista</h3>
+                            <span>R$ 1000,00</span>
+                        </div>
                     </div>
                 @endif
+                </div>
+                <div class="resume__container">
+                    <div class="checkout_title">
+                        <i class="fa-solid fa-receipt"></i>
+                        <h3>Resumo</h3>
+                    </div>
+                    <div class="resume__content">
+                        <div class="resume__subtotal border-bottom">
+                            <h3>Subtotal</h3>
+                            <span>R$ 19,00</span>
+                        </div>
+                        <div class="resume__discount border-bottom">
+                            <h3>Descontos Aplicados</h3>
+                        </div>
+                        <div class="resume__total">
+                            <div class="resume__total-value">
+                                <h2>Total</h2>
+                                <span>RS 19,99</span>
+                            </div>
+                            <div class="resume__btns">
+                                <!-- <button class="btn">COMPRAR</button>
+                                <button class="btn">Voltar as compras</button> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

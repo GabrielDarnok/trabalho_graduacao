@@ -194,7 +194,12 @@
         </div>
         @endif
     </div>
-        
+    
+    <!--=============== WHASAPP LINK ===============-->
+    <a class="whatsapp-link" href="#" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>   
+    </a>
+
 
     <!--=============== LOGIN ===============-->
     <div class="login" id="login">

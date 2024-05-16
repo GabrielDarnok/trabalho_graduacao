@@ -386,6 +386,26 @@ input {
     border-radius: 50%;
 }
 
+.whatsapp-link {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 50px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #25d366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    box-shadow: 1px 1px 2px #888;
+}
+
+.whatsapp-link i {
+    font-size: 2.3rem;
+}
+
 /*=============== MAIN ===============*/
 .main-content {
     min-height: calc(100vh - 100px); /* Altura mínima da tela menos a altura do footer */
@@ -532,6 +552,7 @@ input {
     background-color: var(--container-color);
     border-radius: 1rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
 }
@@ -684,7 +705,7 @@ input {
 
 .icon__card i {
     color: var(--first-color);
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .steps__card:hover {
@@ -932,14 +953,13 @@ input {
 
 /*=============== Checkpoint ===============*/
 .checksider__container {
-    padding: .8rem;
-    background-color: var(--container-color);
     border-radius: 1rem;
+    flex-grow: 1;
 }
 
 .checkout__container {
-    grid-template-columns: 1.7fr 3.3fr;
-    column-gap: 1.8rem;
+    display: flex;
+    gap: .8rem;
 }
 
 .check__title {
@@ -964,8 +984,8 @@ input {
 
 .out__card {
     display: flex;
-    align-items: center;
     column-gap: 1rem;
+    background-color: #f4f4f466;
 }
 
 .out__box {
@@ -977,7 +997,8 @@ input {
 }
 
 .out__img {
-    width: 300px;
+    width: 130px;
+    border-radius: .3rem;
 }
 
 .out__title {
@@ -1004,6 +1025,7 @@ input {
 
 .out__amount-content {
     column-gap: 1rem;
+    justify-content: center;
 }
 
 .out__amount-box {
@@ -2667,6 +2689,10 @@ input {
         display: block;
     }
     
+    .categories__container {
+
+    }
+
     /* Show menu */
     .show-menu {
         right: 0;
@@ -2954,4 +2980,81 @@ input {
 .custom-text-color {
     text-decoration: none;
     color: rgb(0, 255, 157);
+}
+
+.out__card {
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem;
+    border-radius: .5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card__amount {
+    text-align: center;
+}
+
+.product__describe {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.card__product {
+    gap: .5rem;
+    max-width: 450px;
+}
+
+.resume__content {
+    border: 1px solid #5b585326;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: .5rem;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #66666669;
+}
+
+.resume__total {
+    background: var(--container-color);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 .5rem .5rem;
+
+}
+
+.resume__subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume__total,
+.resume__subtotal,
+.resume__discount {
+    padding: .8rem;
+}
+
+.checkout_title {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.3rem;
+    margin-bottom: .5rem;
+}
+
+.product__describe p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+
+}
+
+.resume__total-value {
+    display: flex;
+    justify-content: space-between;
 }
