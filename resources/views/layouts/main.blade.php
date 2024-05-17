@@ -216,7 +216,7 @@
             </div>
 
             <div>
-                <p class="signup">Nãe é cadastrado? <a href="/cadastroPage">Cadastrar-se agora.</a></p>
+                <p class="signup">Não é cadastrado? <a href="/cadastroPage">Cadastrar-se agora.</a></p>
             </div>
         </form>
     </div>

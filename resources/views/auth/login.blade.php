@@ -21,14 +21,14 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
+                <x-label for="password" value="{{ __('Senha') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Lembrar de mim') }}</span>
                 </label>
             </div>
 
@@ -40,7 +40,7 @@
                 @endif
 
                 <x-button class="ml-4">
-                    {{ __('Log in') }}
+                    {{ __('Logar') }}
                 </x-button>
             </div>
         </form>
