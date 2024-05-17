@@ -17,7 +17,6 @@
                         <i class='bx bxs-package'></i>
                         <h3>Produtos</h3>
                     </div>
-<<<<<<< HEAD
                     <!-- <div class="out__prices">
                         <span class="out__prices-total">CARRINHO</span>
                     @#if(isset($dados))
@@ -35,21 +34,6 @@
                             <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
         
                             <div class="out__amount">
-=======
-                    <div class="checkout__box">
-                    @if(isset($dados))
-                        @foreach ($dados['produtosNoCarrinho'] as $cart)
-                        <div class="out__card">
-                            <div class="card__product flex">
-                                <img src="/img/product/{{ $cart->imagem_produto_1 }}" alt="" class="out__img">
-                                <div class="product__describe">
-                                    <h3>{{ $cart->nome_produto }}</h3>
-                                    <p>Descrição do produto</p>
-                                </div>
-                            </div>
-                            <div class="card__amount">
-                                <h3>Quantidade</h3>
->>>>>>> bd503448d93a3f59640469959f634afa00348d5b
                                 <div class="out__amount-content">
                                     <span class="out__amount-box" onclick="countProductCart('-', {{ $cart->id }})">
                                         <i class="bx bx-minus" ></i>
@@ -76,8 +60,7 @@
                             </div>
                         </div>
                         @endforeach
-                    </div>
-<<<<<<< HEAD
+                    </div>-->
                     @if(isset($dados))
                     @foreach ($dados['produtosNoCarrinho'] as $cart)
                     <div class="out__card">
@@ -114,9 +97,6 @@
                     </div>
                 @endforeach
                 @endif
-=======
-                    @endif
->>>>>>> bd503448d93a3f59640469959f634afa00348d5b
                 </div>
                 <div class="resume__container">
                     <div class="checkout_title">
