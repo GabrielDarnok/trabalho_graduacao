@@ -2029,6 +2029,18 @@ input {
     font-weight: var(--font-medium);
 }
 
+.carrinho{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.carrinho a{
+    width: 50%;
+    height: auto;
+    text-align: center;
+}
+
 /* Show cart */
 .show-cart {
     right: 0;

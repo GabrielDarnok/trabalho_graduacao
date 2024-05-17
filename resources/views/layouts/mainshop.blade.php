@@ -57,10 +57,6 @@
                             <h3> {{ auth()->user()->name }} </h3>
                         </div>
                         <hr>                       
-                        <a href="/profile/{{ auth()->user()->id }}" class="sub-menu-link">
-                            <i class="bx bx-user-circle"> </i>
-                            <p>Meu perfil</p>
-                        </a>
                         @auth
                         @if(auth()->user()->role == "admin")
                             <a href="/dashboard_admin" class="sub-menu-link">
@@ -90,8 +86,8 @@
                     <i class="bx bx-grid-alt"> </i>
                 </div>
 
-                <div class="nav__togg">
-                    <i class="bx bxs-moon" id="moon"> </i>
+                <div>
+                    <img src="/img/moon.png" id="moon">
                 </div>
 
             </div>

@@ -58,10 +58,6 @@
                             <h3> {{ auth()->user()->name }} </h3>
                         </div>
                         <hr>                       
-                        <a href="/profile/{{ auth()->user()->id }}" class="sub-menu-link">
-                            <i class="bx bx-user-circle"> </i>
-                            <p>Meu perfil</p>
-                        </a>
                         @auth
                         @if(auth()->user()->role == "admin")
                             <a href="/dashboard_admin" class="sub-menu-link">
@@ -157,23 +153,9 @@
                     <h3 class="cart__title">{{$cart->nome_produto}}</h3>
                     <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
                     <div class="cart__amount">
-                            <div class="cart__amount-content">
-                                <span class="cart__amount-box" onclick="countProduct('-', {{ $cart->id }})">
-                                    <i class="bx bx-minus"></i>
-                                </span>
-                                <span class="cart__amount-number" id="CountProductMain{{ $cart->id }}">{{ $cart->quantidade_car }}</span>
-                                <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
-                                <input type="hidden" name="id" value="{{ $cart->carrinho_id }}">
-                                <span class="cart__amount-box" onclick="countProduct('+', {{ $cart->id }})">
-                                    <i class="bx bx-plus"></i>
-                                </span>
-                            </div>   
-                        
-                        <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
-                        </form>
+                        <div class="cart__amount-content">
+                            <span class="cart__amount-number">Quantidade: {{ $cart->quantidade_car }}</span>
+                        </div>   
                     </div>
                 </div>
             </article>
@@ -183,6 +165,9 @@
         <div class="cart__prices">
             <span class="cart__prices-item" id="quantidadeProdutos">{{ $dados['count'] }} Produtos</span>
             <span class="cart__prices-total" id="total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
+        </div>
+        <div class="carrinho">
+            <a class="button" href="/cart">Ver detalhes</a>
         </div>
         @else
         <div class="cart__container">

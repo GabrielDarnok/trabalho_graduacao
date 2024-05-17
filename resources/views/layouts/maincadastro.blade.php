@@ -57,10 +57,6 @@
                             <h3> {{ auth()->user()->name }} </h3>
                         </div>
                         <hr>                       
-                        <a href="/profile/{{ auth()->user()->id }}" class="sub-menu-link">
-                            <i class="bx bx-user-circle"> </i>
-                            <p>Meu perfil</p>
-                        </a>
                         <a href="#" class="sub-menu-link">
                             <i class="bx bx-package"> </i>
                             <p>Meus Pedidos</p>

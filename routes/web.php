@@ -28,7 +28,8 @@ Route::get('/contato',[redirectController::class, 'contato']);
 
 Route::get('/details',[redirectController::class, 'details']);
 
-Route::get('/profile/{id}',[redirectController::class, 'profile']);
+# Desativado por não ter necessidade de ser aplicado no momento.
+#Route::get('/profile/{id}',[redirectController::class, 'profile']);
 
 Route::get('/registro_end',[redirectController::class, 'registro']);
 
