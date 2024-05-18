@@ -47,7 +47,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return redirect()->back();
+        return redirect('/');
     })->name('index');
 });
 
