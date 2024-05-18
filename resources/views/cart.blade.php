@@ -17,23 +17,19 @@
                         <i class='bx bxs-package'></i>
                         <h3>Produtos</h3>
                     </div>
-                    <!-- <div class="out__prices">
-                        <span class="out__prices-total">CARRINHO</span>
-                    @#if(isset($dados))
-                        <span class="Out__prices-item"  id="quantidadeProdutosCart">{{ $dados['count'] }} Produtos</span>
-                    </div>
-                    @foreach ($dados['produtosNoCarrinho'] as $cart)
-                    <div class="out__container">
-                    <article class="out__card">
-                        <div class="out__box"> 
-                            <img src="/img/product/{{ $cart->imagem_produto_1 }}" alt="" class="out__img">
-                        </div>
-                        <div class="out__details">
-                            <h3 class="out__title">{{ $cart->nome_produto }}</h3>
-                            <span class="out__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
-                            <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
-        
-                            <div class="out__amount">
+                    <div class="checkout__box">
+                    @if(isset($dados))
+                        @foreach ($dados['produtosNoCarrinho'] as $cart)
+                        <div class="out__card">
+                            <div class="card__product flex">
+                                <img src="/img/product/{{ $cart->imagem_produto_1 }}" alt="" class="out__img">
+                                <div class="product__describe">
+                                    <h3>{{ $cart->nome_produto }}</h3>
+                                    <p>Descrição do produto</p>
+                                </div>
+                            </div>
+                            <div class="card__amount">
+                                <h3>Quantidade</h3>
                                 <div class="out__amount-content">
                                     <span class="out__amount-box" onclick="countProductCart('-', {{ $cart->id }})">
                                         <i class="bx bx-minus" ></i>
@@ -60,43 +56,8 @@
                             </div>
                         </div>
                         @endforeach
-                    </div>-->
-                    @if(isset($dados))
-                    @foreach ($dados['produtosNoCarrinho'] as $cart)
-                    <div class="out__card">
-                        <div class="card__product flex">
-                            <img src="/img/product/20333fb253abb4f1cd5aa2005899661e.jpg" alt="" class="out__img">
-                            <div class="product__describe">
-                                <h3>{{$cart->nome_produto}}</h3>
-                                <p>{{$cart->descricao_produto}}</p>
-                            </div>
-                        </div>
-                        <div class="card__amount">
-                            <h3>Quantidade</h3>
-                            <div class="out__amount-content">
-                                <span class="out__amount-box">
-                                    <i class="bx bx-minus"></i>
-                                </span>
-    
-                                <span class="out__amount-number" id="CountProduct{{ $cart->id  }}">{{ $cart->quantidade_car }}</span>
-            
-                                <span class="out__amount-box">
-                                    <i class="bx bx-plus"></i>
-                                </span>
-                            </div>
-                            <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
-                            </form>
-                        </div>
-                        <div class="card__product-price">
-                            <h3>Valor à vista</h3>
-                            <span>R$ {{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
-                        </div>
                     </div>
-                @endforeach
-                @endif
+                    @endif
                 </div>
                 <div class="resume__container">
                     <div class="checkout_title">
@@ -106,7 +67,7 @@
                     <div class="resume__content">
                         <div class="resume__subtotal border-bottom">
                             <h3>Itens</h3>
-                            <span>{{$dados['count']}} Produtos</span>
+                            <span>2 Produtos</span>
                         </div>
                         <div class="resume__discount border-bottom">
                             <h3>Descontos Aplicados</h3>
@@ -114,7 +75,7 @@
                         <div class="resume__total">
                             <div class="resume__total-value">
                                 <h2>Total</h2>
-                                <span>RS {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
+                                <span>RS 19,99</span>
                             </div>
                             <div class="resume__btns">
                                 <button class="btn btn-resume">FINALIZAR</button>
