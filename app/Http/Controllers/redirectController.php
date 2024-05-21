@@ -126,9 +126,11 @@ class redirectController extends Controller
             return redirect('/');
         }
 
-        $produtcs = Product::all();
+        $products = Product::all();
 
-        return view('admin.produtos_admin', ['products'=>$produtcs]);
+        $uniqueCategories = $products->pluck('categoria_produto')->unique();
+
+        return view('admin.produtos_admin', ['categorys'=>$uniqueCategories, 'products'=>$products]);
     }
 
     public function changePassword(){

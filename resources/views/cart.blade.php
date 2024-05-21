@@ -67,7 +67,7 @@
                     <div class="resume__content">
                         <div class="resume__subtotal border-bottom">
                             <h3>Itens</h3>
-                            <span>2 Produtos</span>
+                            <span>{{ $dados['count'] }} Produtos</span>
                         </div>
                         <div class="resume__discount border-bottom">
                             <h3>Descontos Aplicados</h3>
@@ -75,11 +75,11 @@
                         <div class="resume__total">
                             <div class="resume__total-value">
                                 <h2>Total</h2>
-                                <span>RS 19,99</span>
+                                <span>RS {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
                             </div>
                             <div class="resume__btns">
                                 <button class="btn btn-resume">FINALIZAR</button>
-                                <button class="btn btn-resume first-color-alt">Voltar as compras</button>
+                                <a href="/shop"><button class="btn btn-resume first-color-alt">Voltar as compras</button></a>
                             </div>
                         </div>
                     </div>

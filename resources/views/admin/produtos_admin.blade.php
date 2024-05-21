@@ -61,13 +61,15 @@
                     <div id="arquivoHelp" class="form-text">Faça o upload da imagem do produto</div>
                   </div>
                   <div class="div-select">
-                    <select type="text" class="form-control" name="categoria_produto" id="categoria_produto">
-                      <option value="Casual">Casual</option>
-                      <option value="Streetwear">Streetwear</option>
-                      <option value="Fofo">Fofo</option>
-                      <option value="Festa">Festa</option>
-                      <option value="Elegante">Elegante</option>
+                    <select class="form-control" name="categoria_produto" id="categoria_produto" onchange="toggleCustomInput()">
+                      @if(isset($categorys))
+                        @foreach ($categorys as $category)
+                          <option value="{{ $category }}">{{ $category }}</option>
+                        @endforeach
+                      @endif
+                      <option value="custom">Outro...</option>
                     </select>
+                    <input type="text" class="form-control" name="categoria_produto_2" id="categoria_produto_2" style="display:none;" placeholder="Digite a categoria desejada">
                   </div>
                   <div class="text-center">
                     <button class="btn btn-primary" onclick="createProduct()" value="add_produto">Enviar</button>
@@ -174,6 +176,7 @@
               const valor_produto = document.getElementById('valor_produto').value;
               const quantidade_estoq = document.getElementById('quantidade_estoq').value;
               const categoria_produto = document.getElementById('categoria_produto').value;
+              const categoria_produto_2 = document.getElementById('categoria_produto_2').value;
               const imagem_produtoSt = document.getElementById('imagem_produto_1');
 
               if(verificaNome(nome_produto)){
@@ -202,6 +205,7 @@
                 formData.append('valor_produto', valor_produto);
                 formData.append('quantidade_estoq', quantidade_estoq);
                 formData.append('categoria_produto', categoria_produto);
+                formData.append('categoria_produto_2', categoria_produto_2);
                 formData.append('imagem_produto_1', imagem_produtoSt.files[0]);
 
                 console.log(formData);
@@ -260,5 +264,20 @@
 
             corpoDaTabela.innerHTML = htmlLinhas;
         }            
-    </script>  
+    </script>
+    <script>
+      function toggleCustomInput() {
+        var select = document.getElementById("categoria_produto");
+        var customInput = document.getElementById("categoria_produto_2");
+        if (select.value === "custom") {
+          customInput.style.display = "block";
+          customInput.name = "categoria_produto";  // Change the name to match the select
+          select.name = "";  // Clear the select name so it doesn't get submitted
+        } else {
+          customInput.style.display = "none";
+          customInput.name = "categoria_produto_2";  // Reset the name to avoid conflicts
+          select.name = "categoria_produto";  // Restore the select name
+        }
+      }
+    </script>
 @endsection

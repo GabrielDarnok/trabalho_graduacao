@@ -154,25 +154,8 @@
                     <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
                     <div class="cart__amount">
                         <div class="cart__amount-content">
-                            <span class="cart__amount-box" onclick="countProduct('-', {{ $cart->id }})">
-                                <i class="bx bx-minus"></i>
-                            </span>
-
-                            <span class="cart__amount-number" id="CountProductMain{{ $cart->id }}">{{ $cart->quantidade_car }}</span>
-                            <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
-                            <span class="cart__amount-box" onclick="countProduct('+', {{ $cart->id }})">
-                                <i class="bx bx-plus"></i>
-                            </span>
-                        </div>
-                              
-                            <input type="hidden" name="quantidade_car" id="countProductMain{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
-                            <input type="hidden" name="id" value="{{ $cart->id }}">
-                            
-                        <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
-                        </form>
+                            <span class="cart__amount-number">Quantidade: {{ $cart->quantidade_car }}</span>
+                        </div>   
                     </div>
                 </div>
             </article>
@@ -182,6 +165,9 @@
         <div class="cart__prices">
             <span class="cart__prices-item" id="quantidadeProdutos">{{ $dados['count'] }} Produtos</span>
             <span class="cart__prices-total" id="total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
+        </div>
+        <div class="carrinho">
+            <a class="button" href="/cart">Ver detalhes</a>
         </div>
         @else
         <div class="cart__container">
@@ -193,8 +179,6 @@
         </div>
         @endif
     </div>
-        
-
     <!--=============== LOGIN ===============-->
     <div class="login" id="login">
         <i class="bx bx-x login__close" id="login-close"></i>
