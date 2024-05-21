@@ -20,7 +20,11 @@ class ProductController extends Controller
             $product->descricao_produto = $request->descricao_produto;
             $product->valor_produto = $request->valor_produto;
             $product->quantidade_estoq = $request->quantidade_estoq;
-            $product->categoria_produto = $request->categoria_produto_2;
+            if($request->categoria_produto == "custom"){
+                $product->categoria_produto = $request->categoria_produto_2;
+            }else{
+                $product->categoria_produto = $request->categoria_produto;
+            }
         
             //image upload
         

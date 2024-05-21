@@ -69,7 +69,9 @@
                       @endif
                       <option value="custom">Outro...</option>
                     </select>
+                    <br>
                     <input type="text" class="form-control" name="categoria_produto_2" id="categoria_produto_2" style="display:none;" placeholder="Digite a categoria desejada">
+                    <br>
                   </div>
                   <div class="text-center">
                     <button class="btn btn-primary" onclick="createProduct()" value="add_produto">Enviar</button>
@@ -197,8 +199,6 @@
               }
 
               if(permissao == 0){
-                console.log(imagem_produtoSt.files[0]);
-
                 var formData = new FormData();
                 formData.append('nome_produto', nome_produto);
                 formData.append('descricao_produto', descricao_produto);
