@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Product;
+use App\Models\Pedido;
 
 class CarrinhoController extends Controller
 {
@@ -91,5 +92,40 @@ class CarrinhoController extends Controller
         }
           
         abort(403);//Acesso negado
+    }
+    public function finalizaPedido(Request $request){
+        $prod_carrinho = json_decode($request->input('prod_carrinho'), true);
+
+        // Verifique se recebeu algum ID de carrinho
+        if (empty($prod_carrinho)) {
+            abort(403, 'Acesso negado: nenhum carrinho encontrado.');
+        }
+        // Processar cada item do carrinho
+        foreach ($prod_carrinho as $item) {
+            // Acessar as informações do carrinho
+            $cart = Car::find($item['carrinho_id']);
+            if ($cart) {
+                // Salvar os dados do carrinho no banco de dados
+                $pedido = new Pedido();
+                $pedido->id_usuario = $cart->id_usuario;
+                $pedido->nome_produto = $item['nome_produto'];
+                $pedido->quantidade_car = $item['quantidade_car'];
+                $pedido->valor_produto = $item['valor_produto'];
+                $pedido->valor_total = $item['valor_produto'] * $item['quantidade_car'];
+                $pedido->imagem_produto_1 = $item['imagem_produto_1'];
+                // Preencha outros campos de $pedido com os dados necessários
+                $pedido->save();
+
+                // Excluir o carrinho após salvar o pedido
+                $cart->delete();
+            } else {
+                // Se algum carrinho não for encontrado, você pode decidir o que fazer
+                // Exemplo: continue, lançar uma exceção, etc.
+                continue;
+            }
+        }
+
+        // Retornar uma resposta adequada ao cliente
+        return redirect('/cart')->with('msg','Pedido realizado!');
     }
 }

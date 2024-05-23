@@ -16,14 +16,12 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nome_produto');
             $table->string('categoria_produto');
-            $table->string('imagem_produto');
-            $table->string('imagem_produto_2');
-            $table->string('imagem_produto_3');
-            $table->string('imagem_produto_4');
+            $table->string('imagem_produto_1');
+            $table->string('imagem_produto_2')->nullable();;
+            $table->string('imagem_produto_3')->nullable();;
+            $table->string('imagem_produto_4')->nullable();;
             $table->integer('quantidade_estoq');
             $table->text('descricao_produto');
-            $table->json('cor_produto');
-            $table->json('tamanho_roupa');
             $table->float('valor_produto',8 , 2);
         });
     }

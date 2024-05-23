@@ -40,11 +40,6 @@
             </div>
 
             <div class="nav__btns">
-                @guest
-                <div class="login__toggle" id="login-toggle">
-                    <i class='bx bxs-user'></i>
-                </div>
-                @endguest
                 @auth
                 <div>
                     <i src="/img/profile-pic.png" class="user__pic" id="userPic"> </i>

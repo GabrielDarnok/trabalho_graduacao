@@ -210,6 +210,7 @@
 
             <div>
                 <p class="signup">Nãe é cadastrado? <a href="/cadastroPage">Cadastrar-se agora.</a></p>
+                <p class="signup">Esqueceu a senha? <a href="/forgot_password">Clique aqui.</a></p>
             </div>
         </form>
     </div>

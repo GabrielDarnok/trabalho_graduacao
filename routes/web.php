@@ -80,3 +80,5 @@ Route::get('/relatorio-scan_admin', [redirectController::class,'relatorioScanAdm
 Route::get('/produtos_admin', [redirectController::class,'produtosAdmin']);
 
 Route::get('/forgot_password', [redirectController::class,'changePassword']);
+
+Route::post('/car/pedido', [CarrinhoController::class,'finalizaPedido'])->name('add.pedido');

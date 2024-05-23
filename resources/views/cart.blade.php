@@ -78,7 +78,13 @@
                                 <span>RS {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
                             </div>
                             <div class="resume__btns">
-                                <button class="btn btn-resume">FINALIZAR</button>
+                                @if(isset($dados))
+                                <form method="POST" action="{{route('add.pedido')}}">
+                                    @csrf
+                                    <input type="hidden" name="prod_carrinho" value="{{json_encode($dados['produtosNoCarrinho'])}}">
+                                    <input type="submit" class="btn btn-resume" value="FINALIZAR">
+                                </form>
+                                @endif
                                 <a href="/shop"><button class="btn btn-resume first-color-alt">Voltar as compras</button></a>
                             </div>
                         </div>
