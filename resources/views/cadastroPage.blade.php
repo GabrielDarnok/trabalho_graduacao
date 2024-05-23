@@ -11,7 +11,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 0.4rem;
+            gap: 0.8rem;
             margin-bottom: 2.0rem;
             align-items: center;
         }
@@ -24,17 +24,50 @@
             flex-direction: column;
             width: 70%;
         }
+
+        .login__content {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            width: 27rem;
+            padding: .30rem 1rem .30rem;
+        }
+
+        .login__label i {
+            font-size: 1.25rem;
+        }
+
+        .contact__input{
+            height: 3rem;
+            padding: unset;
+        }
+
+        #formCadastro {
+            margin-top: 4rem;
+        }
+
+        .contact__input::placeholder {
+            color: var(--title-color);
+        }
+
         @media screen and (max-width: 768px){
             .form_input {
                 display: block;  
             }
+            
             .form_section{
                 gap: 1.5rem;
             }
+
+            .login__content {
+                width: 100%;
+            }
+
+            .cad {
+                width: 13rem;
+            }
         }
-        .contact__input{
-            height: 3rem;
-        }
+        
     </style>
     <!--=============== MAIN ===============-->
     <main class="main">
@@ -44,36 +77,35 @@
             <h3 class="breadcrumb__subtitle">Inicio > <span>Cadastro</span></h3>
 
             <div class="container">
-                <div>
-                    <form method="POST" action="{{ route('register') }}" id="formCadastro">
-                        <div class = "form_input"> 
-                            @csrf  
-                            <div class = "form_section">
-                                <div class = "contact__label">
-                                    <label for="nome" class = "contact__label">Nome:</label>
-                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem; padding: 10px;" type="text" id="name" name="name" required>
-                                </div>
-                                <div class = "contact__label">
-                                    <label for="email" class = "contact__label" >Email:</label>
-                                    <input class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem; padding: 10px;" type="email" id="email" name="email" required>
-                                </div>
+                <form method="POST" action="{{ route('register') }}" id="formCadastro">
+                    <p style="text-align: center;padding-bottom: 3rem;">Junte-se a nós e aproveite ofertas exclusivas! <br>Crie sua conta agora para uma experiência de compra personalizada.</p>
+                    <div class = "form_input"> 
+                        @csrf  
+                        <div class = "form_section">
+                            <div class = "login__content">
+                                <label for="nome" class = "login__label"><i class='bx bx-user'></i></label>
+                                <input  class="contact__input" style ="width: 100%" placeholder="Nome" type="text" id="name" name="name" required>
                             </div>
-                            <div class = "form_section">
-                                <div class = "contact__label">
-                                    <label for="senha" class = "contact__label">Senha: (Mínimo 8 caracteres)</label>
-                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem; padding: 10px;" type="password" id="password" name="password" required>
-                                </div>
-                                <div class = "contact__label">
-                                    <label for="confirmar_senha" class = "contact__label">Confirmar Senha:</label>
-                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem; padding: 10px;" type="password" id="password_confirmation" name="password_confirmation" required>
-                                </div>
+                            <div class = "login__content">
+                                <label for="email" class = "login__label" ><i class='bx bx-envelope' ></i></label>
+                                <input class="contact__input" style ="width: 100%" placeholder="Email" type="email" id="email" name="email" required>
                             </div>
                         </div>
-                        <div style= "display: flex; justify-content: center; width: 100%; margin-top: 1.25rem;">
-                            <a class= "button cad" type="button" onclick="validaCampos()" style="width: 40%; display: flex; justify-content: center;">Cadastrar</a>
+                        <div class = "form_section">
+                            <div class = "login__content">
+                                <label for="senha" class = "login__label"><i class='bx bxs-lock-alt' ></i></label>
+                                <input  class="contact__input" style ="width: 100%" placeholder="Senha" type="password" id="password" name="password" required>
+                            </div>
+                            <div class = "login__content">
+                                <label for="confirmar_senha" class = "login__label"><i class='bx bxs-lock-alt' ></i></label>
+                                <input  class="contact__input" style ="width: 100%" placeholder="Confirmar senha" type="password" id="password_confirmation" name="password_confirmation" required>
+                            </div>
                         </div>
-                    </form> 
-                </div>
+                    </div>
+                    <div style= "display: flex; justify-content: center; width: 100%; margin-top: 1.25rem;">
+                        <a class= "button cad" type="button" onclick="validaCampos()" style="width: 20rem; display: flex; justify-content: center;">Cadastrar</a>
+                    </div>
+                </form> 
             </div>
         </section>
     </main>
