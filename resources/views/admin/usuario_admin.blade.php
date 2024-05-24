@@ -46,6 +46,21 @@
                                 @method('DELETE')
                                 <a type="button" class="bi bi-trash-fill" data-toggle="modal" data-target="#confirmarExcluir" data-product-id="{{ $user->id }}" title="Excluir"></a>
                             </form>
+                            @if($user->role == "user")
+                              <form action="{{ route('change.admin', ['id' => $user->id]) }}" method="POST">
+                                  @csrf
+                                  <button type="submit">
+                                    <i class="bi bi-person-bounding-box">Tornar admin</i>
+                                  </button>
+                              </form>
+                            @elseif ($user->role == "admin")
+                              <form action="{{ route('change.user', ['id' => $user->id]) }}" method="POST">
+                                  @csrf
+                                  <button type="submit">
+                                    <i class="bi bi-person-bounding-box">Tornar user</i>
+                                  </button>
+                              </form>
+                            @endif
                         </td>
                       </tr>
                     <tbody>

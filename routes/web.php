@@ -54,7 +54,11 @@ Route::post('/products', [ProductController::class, 'store']);
 
 Route::delete('/admin/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('auth');
 
-Route::delete('/admin/user/{id}', [UserController::class, 'destroy_user'])->name('user.destroy')->middleware('auth');
+Route::delete('/admin/user/{id}', [UserController::class, 'destroyUser'])->name('user.destroy')->middleware('auth');
+
+Route::post('/admin/user/change/{id}', [UserController::class, 'changeUser'])->name('change.user')->middleware('auth');
+
+Route::post('/admin/admin/change/{id}', [UserController::class, 'changeAdmin'])->name('change.admin')->middleware('auth');
 
 Route::get('/admin/edit/{id}', [ProductController::class, 'edit']);
 
