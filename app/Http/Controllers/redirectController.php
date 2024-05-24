@@ -136,4 +136,12 @@ class redirectController extends Controller
     public function changePassword(){
         return view('auth.forgot-password');
     }
+
+    public function pedido(){
+        $pedido = Pedido::where('id_usuario', auth()->user()->id)->get();
+        
+        $dados = parent::verificaUsuarioLog();
+        
+        return view('pedido', ['pedido'=>$pedido, 'dados' => $dados]);
+    }
 }

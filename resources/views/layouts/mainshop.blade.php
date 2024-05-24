@@ -66,7 +66,7 @@
                         </li>
                         @endif
                         @endauth
-                        <a href="#" class="sub-menu-link">
+                        <a href="/pedido" class="sub-menu-link">
                             <i class="bx bx-package"> </i>
                             <p>Meus Pedidos</p>
                         </a>
