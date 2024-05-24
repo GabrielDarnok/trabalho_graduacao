@@ -20,7 +20,7 @@ class ProductController extends Controller
             $product->descricao_produto = $request->descricao_produto;
             $product->valor_produto = $request->valor_produto;
             $product->quantidade_estoq = $request->quantidade_estoq;
-            if($request->categoria_produto == "custom"){
+            if($request->categoria_produto == "custom" || $request->categoria_produto == ""){
                 $product->categoria_produto = $request->categoria_produto_2;
             }else{
                 $product->categoria_produto = $request->categoria_produto;

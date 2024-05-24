@@ -61,7 +61,7 @@
                     <div id="arquivoHelp" class="form-text">Faça o upload da imagem do produto</div>
                   </div>
                   <div class="div-select">
-                      @if(!empty($categorys))
+                      @if(count($categorys) > 0)
                         <select class="form-control" name="categoria_produto" id="categoria_produto" onchange="toggleCustomInput()">
                           @foreach ($categorys as $category)
                             <option value="{{ $category }}">{{ $category }}</option>
@@ -71,6 +71,9 @@
                         <br>
                           <input type="text" class="form-control" name="categoria_produto_2" id="categoria_produto_2" style="display:none;" placeholder="Digite a categoria desejada">
                         <br>
+                      @else
+                          <input type="text" class="form-control" name="categoria_produto_2" id="categoria_produto_2" placeholder="Digite a categoria desejada">
+                          <br>
                       @endif
                   </div>
                   <div class="text-center">
@@ -172,14 +175,21 @@
               event.preventDefault();
               var permissao = 0;
               var msgErro = '';
+              var categoriaPrincipal = document.getElementById('categoria_produto');
+
+              if (categoriaPrincipal !== null) {
+                  var categoria_produto = categoriaPrincipal.value;
+              } else {
+                  var categoria_produto = "";
+              }
+    
               var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-              const nome_produto = document.getElementById('nome_produto').value;
-              const descricao_produto = document.getElementById('descricao_produto').value;
-              const valor_produto = document.getElementById('valor_produto').value;
-              const quantidade_estoq = document.getElementById('quantidade_estoq').value;
-              const categoria_produto = document.getElementById('categoria_produto').value;
-              const categoria_produto_2 = document.getElementById('categoria_produto_2').value;
-              const imagem_produtoSt = document.getElementById('imagem_produto_1');
+              var nome_produto = document.getElementById('nome_produto').value;
+              var descricao_produto = document.getElementById('descricao_produto').value;
+              var valor_produto = document.getElementById('valor_produto').value;
+              var quantidade_estoq = document.getElementById('quantidade_estoq').value;         
+              var categoria_produto_2 = document.getElementById('categoria_produto_2').value;
+              var imagem_produtoSt = document.getElementById('imagem_produto_1');
 
               if(verificaNome(nome_produto)){
                 permissao++;
