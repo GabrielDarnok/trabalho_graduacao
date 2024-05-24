@@ -92,10 +92,7 @@
               <div class="card-body">
                 <div class="table-responsive text-center">
                   <table
-                    id="example"
-                    class="table table-striped data-table"
-                    style="width: 100%"
-                  >
+                    id="product-table" class="table table-striped data-table" style="width: 100%">
                     <thead>
                       <tr>
                         <th>Imagem principal</th>
@@ -138,21 +135,28 @@
         </div>
       </div>
     </main>
-    <footer>
-      <script src="/js/admin/jquery-3.5.1.js"></script>
-      <script src="/js/admin/bootstrap.bundle.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
-      <script src="/js/admin/jquery.dataTables.min.js"></script>
-      <script src="/js/admin/dataTables.bootstrap5.min.js"></script>
-      <script src="/js/admin/script.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </footer>
-    
+
+    <script src="/js/admin/jquery-3.5.1.js"></script>
+    <script src="/js/admin/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="/js/admin/jquery.dataTables.min.js"></script>
+    <script src="/js/admin/dataTables.bootstrap5.min.js"></script>
+    <script src="/js/admin/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script>
+
+        $(document).ready(function () {
+            $('#product-table').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
+                }
+            });
+        });
+
         var deleteRoute = "{{ route('product.destroy', ['id' => ':id']) }}";
         function processarFormulario() {
           return false;
@@ -170,6 +174,7 @@
             
           return /^\d+$/.test(number);
         }
+      
         function createProduct(){
           
               event.preventDefault();
