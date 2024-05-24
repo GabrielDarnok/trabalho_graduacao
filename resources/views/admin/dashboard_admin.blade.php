@@ -117,7 +117,7 @@
       <script src="/js/admin/jquery.dataTables.min.js"></script>
       <script src="/js/admin/dataTables.bootstrap5.min.js"></script>
       <script src="/js/admin/script.js"></script>
-      <script src="/js/admin/datatable.js"></script>
+      <script src="/js/admin/datagraph.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
