@@ -5,7 +5,6 @@ use App\Http\Controllers\redirectController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarrinhoController;
-use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 
@@ -53,7 +52,9 @@ Route::middleware([
 
 Route::post('/products', [ProductController::class, 'store']);
 
-Route::delete('/admin/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('auth');;
+Route::delete('/admin/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('auth');
+
+Route::delete('/admin/user/{id}', [UserController::class, 'destroy_user'])->name('user.destroy')->middleware('auth');
 
 Route::get('/admin/edit/{id}', [ProductController::class, 'edit']);
 
@@ -84,3 +85,5 @@ Route::get('/forgot_password', [redirectController::class,'changePassword']);
 Route::post('/car/pedido', [CarrinhoController::class,'finalizaPedido'])->name('add.pedido');
 
 Route::get('/pedido', [redirectController::class,'pedido']);
+
+Route::get('/usuario-admin', [redirectController::class,'usuarioAdmin']);

@@ -140,7 +140,7 @@
               </div>
             </li>
             <li>
-              <a href="#" class="nav-link px-3">
+              <a href="/usuario-admin" class="nav-link px-3">
                 <span class="me-2"><i class="bi bi-person"></i></span>
                 <span>Administrar usuários</span>
               </a>

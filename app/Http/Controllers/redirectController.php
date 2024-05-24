@@ -144,4 +144,14 @@ class redirectController extends Controller
         
         return view('pedido', ['pedido'=>$pedido, 'dados' => $dados]);
     }
+
+    public function usuarioAdmin(){
+        $users = User::all();
+
+        if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
+            return redirect('/');
+        }
+
+        return view('admin.usuario_admin', ['users'=>$users]);
+    }
 }
