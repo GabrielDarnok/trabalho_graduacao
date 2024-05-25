@@ -71,9 +71,12 @@
                             <i class="bx bx-package"> </i>
                             <p>Meus Pedidos</p>
                         </a>
-                        <form action="/logout" method="POST" class="sub-menu-link">
+                        <form action="/logout" method="POST">
 							@csrf
-							<a href="/logout" class="bx bx-log-out" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+                            <a href="/pedido" class="sub-menu-link" onclick="event.preventDefault(); this.closest('form').submit();">
+                                <i class="bx bx-log-out" style="background: #000000; color: white"> </i>
+                                <p>Sair</p>
+                            </a>
 						</form>
                     </div>
                 </div>

@@ -43,16 +43,11 @@
         </button>
         <div class="collapse navbar-collapse" id="topNavBar">
           <ul class="navbar-nav ms-auto">
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;">
-                      <i class="bi bi-person-fill"></i>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                      <form action="/logout" method="POST" class="sub-menu-link">
-                        @csrf
-                        <li><a href="/logout" class="bx bx-log-out" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a></li>
-                      </form>
-                  </ul>
+              <li class="nav-item">
+                  <form action="/logout" method="POST" class="sub-menu-link">
+                    @csrf
+                    <a href="/logout" class="logout-link" onclick="event.preventDefault(); this.closest('form').submit();"><i class="bx bx-log-out"></i>Sair</a>
+                  </form>
               </li>
           </ul>
       </div>

@@ -119,7 +119,7 @@
                         <td>
                             <form id="deleteForm{{ $product->id }}" action="{{ route('product.destroy', ['id' => $product->id]) }}" method="POST">
                                 @csrf
-                                @method('DELETE')
+                                @method('DELETE')                                
                                 <a type="button" class="bi bi-trash-fill" data-toggle="modal" data-target="#confirmarExcluir" data-product-id="{{ $product->id }}" title="Excluir"></a>
                             </form>
                         </td>
@@ -149,6 +149,9 @@
 
     <!-- JS do Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+
+    <!-- JS do admin -->
+    <script src="/js/admin/script.js"></script>
 
     <script>
 
