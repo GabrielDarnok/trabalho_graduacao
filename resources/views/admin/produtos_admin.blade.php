@@ -62,6 +62,7 @@
                   </div>
                   <div class="div-select">
                       @if(count($categorys) > 0)
+                        <label for="categoria_produto" class="form-label">Selecione a categoria ou digite outra</label>
                         <select class="form-control" name="categoria_produto" id="categoria_produto" onchange="toggleCustomInput()">
                           @foreach ($categorys as $category)
                             <option value="{{ $category }}">{{ $category }}</option>

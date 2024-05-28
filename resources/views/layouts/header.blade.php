@@ -27,7 +27,7 @@
         >
           <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
         </button>
-        <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="/dashboard_admin">
+        <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="/">
           <img src="/img/logo_zap.png" class="img-fluid" style="max-width: 80px;">
         </a>
         <button
@@ -68,12 +68,6 @@
               <div class="text-muted small fw-bold text-uppercase px-3">
                 Ferramentas
               </div>
-            </li>
-            <li>
-              <a href="/" class="nav-link px-3">
-                <span class="me-2"><i class="bi bi-house"></i></span>
-                <span>Home</span>
-              </a>
             </li>
             <li>
               <a href="/dashboard_admin" class="nav-link px-3">
