@@ -138,6 +138,40 @@
                 <li><a href="{{ route('shop', ['search' => '']) }}">Diversos</a></li>
             </ul>
         </nav>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/" class="nav__link">Início</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="/shop" class="nav__link">Shop</a>
+                    </li>
+                    @auth
+                    <li class="nav__item">
+                        <a href="/cart" class="nav__link">Carrinho</a>
+                    </li>
+                    @endauth
+                    <li class="nav__item">
+                        <a href="/sobre" class="nav__link">Quem somos</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="/contato" class="nav__link">Contato</a>
+                    </li>
+                    @auth
+                    @if(auth()->user()->role == "admin")
+                    <li class="nav__item">
+                        <a href="/admin" class="nav__link">Admin Page</a>
+                    </li>
+                    @endif
+                    @endauth
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class="bx bx-x"></i>
+                </div>
+            </div>
     </header>
     <!--=============== CART ===============-->
     <div class="cart" id="cart">

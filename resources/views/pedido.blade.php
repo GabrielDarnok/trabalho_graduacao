@@ -13,20 +13,30 @@
 
             <div class="checkout__container">
                 <div class="checksider__container">
-                    <div class="checkout_title">
-                        <i class='bx bxs-package'></i>
-                        <h3>Produtos</h3>
+                    <div class="checkout_title order_title">
+                        <i class='bx bxs-basket' style="color: var(--first-color);"></i>
+                        <h3>MEUS PEDIDOS</h3>
                     </div>
-                    <div class="checkout__box">
+                    <div class="order__content">
                     @foreach ($pedido as $produto)
-                        <p>Nome do produto: {{$produto->nome_produto}}</p>
-                        <p>Valor unitário: {{$produto->valor_produto}}</p>
-                        <p>Valor total: {{$produto->valor_total}}</p>
-                        <p>Quantidade no carrinho: {{$produto->quantidade_car}}</p>
-                        <img src="/img/product/{{$produto->imagem_produto_1}}" width="100px">
-                        <p>Dia da compra: {{ date('d/m/Y', strtotime($produto->created_at)) }}</p>
-                        <br><br>
+                        <div class="order__item">
+                            <div><p>Pedido: {{$produto->id}} - {{ date('d/m/Y', strtotime($produto->created_at)) }}</p></div>
+                            <div><p>Valor total: {{$produto->valor_total}}</p></div>
+                            <div><img src="/img/product/{{$produto->imagem_produto_1}}" width="40" height="40"></div>
+                            <div></div>
+                            <div></div>
+                            <p>Nome do produto: {{$produto->nome_produto}}</p>
+                            <p>Valor unitário: {{$produto->valor_produto}}</p>
+                            <p>Valor total: {{$produto->valor_total}}</p>
+                            <p>Quantidade no carrinho: {{$produto->quantidade_car}}</p>
+                           
+                            <p>Dia da compra: {{ date('d/m/Y', strtotime($produto->created_at)) }}</p>
+                            <br><br>
+                        </div>
                     @endforeach
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
