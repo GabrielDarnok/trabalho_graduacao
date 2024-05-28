@@ -104,7 +104,11 @@ class redirectController extends Controller
             return redirect('/');
         }
 
-        return view('admin.dashboard_admin');
+        $pedidos = Pedido::join('users', 'pedidos.id_usuario', '=', 'users.id')
+                  ->select('pedidos.*', 'users.email')
+                  ->get();
+
+        return view('admin.dashboard_admin',['pedidos'=>$pedidos]);
     }
 
     public function relatorioAdmin(){

@@ -44,11 +44,10 @@
                             <form id="deleteForm{{ $user->id }}" action="{{ route('user.destroy', ['id' => $user->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger" data-toggle="modal" data-target="#confirmarExcluir" data-product-id="{{ $user->id }}" title="Excluir">
+                                <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmarExcluir" data-product-id="{{ $user->id }}" title="Excluir">
                                     <i class="bi bi-trash-fill"></i>
                                     Excluir
-                                </button>
-                                <!-- <a type="button" class="bi bi-trash-fill" data-toggle="modal" data-target="#confirmarExcluir" data-product-id="{{ $user->id }}" title="Excluir"></a> -->
+                                </a>
                             </form>
                             @if($user->role == "user")
                               <form action="{{ route('change.admin', ['id' => $user->id]) }}" method="POST">

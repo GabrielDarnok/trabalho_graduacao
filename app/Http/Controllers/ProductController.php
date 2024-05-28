@@ -18,6 +18,10 @@ class ProductController extends Controller
             $product = new Product;
 
             $product->nome_produto = $request->nome_produto;
+            $produtoExistente = Product::where('nome_produto', $request->nome_produto)->exists();
+            if ($produtoExistente) {
+                return redirect()->back()->with('err',"O nome do produto existente.");
+            }
             $product->descricao_produto = $request->descricao_produto;
             $product->valor_produto = $request->valor_produto;
             $product->quantidade_estoq = $request->quantidade_estoq;
@@ -41,7 +45,7 @@ class ProductController extends Controller
         
                 $product->imagem_produto_1 = $imageName;
             }
-        
+            
             $product->save();
             $produtcs = Product::all();
             

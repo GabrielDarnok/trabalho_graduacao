@@ -73,35 +73,41 @@
           <div class="col-md-12 mb-3">
             <div class="card">
               <div class="card-header">
-                <span><i class="bi bi-table me-2"></i></span> Ultimos Scans
+                <span><i class="bi bi-table me-2"></i></span> Ultimos Pedidos
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table
                     id="example"
-                    class="table table-striped data-table"
+                    class="table table-striped data-table text-center"
                     style="width: 100%"
                   >
                     <thead>
                       <tr>
-                        <th>Usuário</th>
-                        <th>ASN</th>
-                        <th>Tipos de vuln</th>
-                        <th>Vulnerabilidades detectadas</th>
-                        <th>Quantidade de ips testados</th>
-                        <th>Data</th>
+                        <th>Imagem</th>
+                        <th>Nome do produto</th>
+                        <th>Nome do usuário</th>
+                        <th>Quantidade</th>
+                        <th>Valor do produto</th>
+                        <th>Valor total</th>
+                        <th>Data do pedido</th>
                       </tr>
                     </thead>
+                    @if(isset($pedidos))
+                    @foreach ($pedidos as $pedido)
                     <tbody>
                       <tr>
-                        <td>Gabriel Henrique</td>
-                        <td>52863</td>
-                        <td>3</td>
-                        <td>45</td>
-                        <td>1980</td>
-                        <td>25/04/2024</td>
+                        <td><img src="/img/product/{{ $pedido->imagem_produto_1 }}" width="50" height="50"></td>
+                        <td>{{$pedido->nome_produto}}</td>
+                        <td>{{$pedido->email}}</td>
+                        <td>{{$pedido->quantidade_car}}</td>
+                        <td>{{$pedido->valor_produto}}</td>
+                        <td>{{$pedido->valor_total}}</td>
+                        <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
                       </tr>
                     <tbody>
+                    @endforeach
+                    @endif
                   </table>
                 </div>
               </div>
