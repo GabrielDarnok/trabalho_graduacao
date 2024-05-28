@@ -20,18 +20,15 @@
                     <div class="order__content">
                     @foreach ($pedido as $produto)
                         <div class="order__item">
-                            <div><p>Pedido: {{$produto->id}} - {{ date('d/m/Y', strtotime($produto->created_at)) }}</p></div>
-                            <div><p>Valor total: {{$produto->valor_total}}</p></div>
-                            <div><img src="/img/product/{{$produto->imagem_produto_1}}" width="40" height="40"></div>
-                            <div></div>
-                            <div></div>
-                            <p>Nome do produto: {{$produto->nome_produto}}</p>
-                            <p>Valor unitário: {{$produto->valor_produto}}</p>
-                            <p>Valor total: {{$produto->valor_total}}</p>
-                            <p>Quantidade no carrinho: {{$produto->quantidade_car}}</p>
-                           
-                            <p>Dia da compra: {{ date('d/m/Y', strtotime($produto->created_at)) }}</p>
-                            <br><br>
+                            <div class="item__header bd-bottom"><p><span>Pedido:</span> {{$produto->id}} - {{ date('d/m/Y', strtotime($produto->created_at)) }}</p></div>
+                            <div class="item__resume bd-bottom"><p><span>Valor total:</span> {{$produto->valor_total}}</p></div>
+                            <div class="item__describe">
+                                <img class="item-img" src="/img/product/{{$produto->imagem_produto_1}}" width="40" height="40">
+                                <div>
+                                    <p><span>{{$produto->nome_produto}}</span></p>
+                                    <p><span>Quantidade:</span> {{$produto->quantidade_car}}</p>
+                                </div>
+                            </div>               
                         </div>
                     @endforeach
                     </div>

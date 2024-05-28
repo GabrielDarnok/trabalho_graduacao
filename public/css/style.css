@@ -3086,6 +3086,47 @@ input {
     gap: .5rem;
 }
 
+.order__item {
+    background: white;
+    border-radius: .3rem;
+    font-size: .8rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order__item span {
+    font-weight: 600;
+}
+
+.order__item .bd-bottom {
+    border-bottom: 1px solid #dee0e4;
+}
+
+.item__header {
+    padding: 1rem;
+}
+
+.item__resume {
+    padding: 0.5rem 0.75rem;
+}
+
+.item__describe {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+}
+
+.item__describe div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.order__item .item-img {
+    width: 4.25rem;
+    height: 4.25rem;
+    border: 1px solid #dee0e4;
+}
+
 .product__describe p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
