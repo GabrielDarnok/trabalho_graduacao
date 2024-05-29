@@ -95,6 +95,8 @@
                             <div class = "login__content">
                                 <label for="senha" class = "login__label"><i class='bx bxs-lock-alt' ></i></label>
                                 <input  class="contact__input" style ="width: 100%" placeholder="Senha" type="password" id="password" name="password" required>
+                                <i class="fa-solid fa-eye" id="show-password" onclick="passwordToggle(true)"></i>
+                                <i class="fa-solid fa-eye-slash" id="hide-password" style="display: none" onclick="passwordToggle(false)"></i>
                             </div>
                             <div class = "login__content">
                                 <label for="confirmar_senha" class = "login__label"><i class='bx bxs-lock-alt' ></i></label>
@@ -124,6 +126,18 @@
     
     <script>
         
+        function passwordToggle(arg) {
+            if (arg === true) {
+                $('#show-password').hide();
+                $('#hide-password').show();
+                $('#password').attr('type', 'text');
+            } else {
+                $('#hide-password').hide();
+                $('#show-password').show();
+                $('#password').attr('type', 'password');
+            }
+        }
+
         function validaCampos(){
             var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             const nome = document.getElementById('name');

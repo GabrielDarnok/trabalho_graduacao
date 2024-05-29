@@ -240,7 +240,11 @@
 
             <div class="login__content">
                 <label for="password" value="{{ __('Password') }}" class="login__label">Senha</label>
-                <input id="password" class="login__input" type="password" name="password" required autocomplete="current-password">
+                <div class="login__password">
+                    <input id="password" class="login__input" type="password" name="password" required autocomplete="current-password">
+                    <i class="fa-solid fa-eye" id="show-password" onclick="passwordToggle(true)"></i>
+                    <i class="fa-solid fa-eye-slash" id="hide-password" style="display: none" onclick="passwordToggle(false)"></i>
+                </div>
             </div>
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
@@ -343,7 +347,21 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>        
+    <script>
+
+        function passwordToggle(arg) {
+            if (arg === true) {
+                $('#show-password').hide();
+                $('#hide-password').show();
+                $('#password').attr('type', 'text');
+            } else {
+                $('#hide-password').hide();
+                $('#show-password').show();
+                $('#password').attr('type', 'password');
+            }
+        }
+
+        
         function countProduct(operation, id){
             const quantidadeProdutos = document.getElementById('quantidadeProdutos');
             const countProduct = document.getElementById('countProductMain'+id);

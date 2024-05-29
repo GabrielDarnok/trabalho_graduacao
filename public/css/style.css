@@ -1900,6 +1900,11 @@ input {
     padding: .75rem 1rem .25rem;
 }
 
+.login__password {
+    display: flex;
+    align-items: center;
+}
+
 .login__label {
     font-size: var(--small-font-size);
     color: var(--title-color);
