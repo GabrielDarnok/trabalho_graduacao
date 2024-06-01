@@ -98,7 +98,7 @@ fetch('/dados-circular')
                 data: {
                     labels: data.labels,  // Usar os labels retornados
                     datasets: [{
-                        label: 'Vulnerabilidades detectadas',
+                        label: 'produto',
                         data: data.counts,  // Usar os counts retornados
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.5)',
