@@ -27,7 +27,7 @@
             <div class="card h-100">
               <div class="card-header">
                 <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                Ips testados
+                Quantidade de pedidos por mês
               </div>
               <div class="card-body">
                 <canvas class="chart" width="400" height="200"></canvas>
@@ -38,7 +38,7 @@
             <div class="card h-100">
               <div class="card-header">
                 <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
-                Vulnerabilidades Detectadas
+                Produtos mais vendidos
               </div>
               <div class="card-body">
                 <canvas class="pizza-chart" width="400" height="200"></canvas>
@@ -49,7 +49,7 @@
             <div class="card h-100">
               <div class="card-header">
                 <span class="me-2"><i class="bi bi-graph-up"></i></span>
-                Vulnerabilidades tratada pelos clientes
+                Quantidade de cadastros mensais
               </div>
               <div class="card-body">
                 <canvas class="line-chart" width="400" height="200"></canvas>
@@ -60,10 +60,10 @@
             <div class="card h-100">
               <div class="card-header">
                 <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                Clientes notificados
+                Quantidade de produtos cadastrados por mês
               </div>
               <div class="card-body">
-                <canvas class="chart" width="400" height="200"></canvas>
+                <canvas class="chart2" width="400" height="200"></canvas>
               </div>
             </div>
           </div>

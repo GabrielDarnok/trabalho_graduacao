@@ -7,14 +7,14 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <h4>Relatórios</h4>
+            <h4>Dados de contato</h4>
           </div>
         </div>
         <div class="row mt-5">
           <div class="col-md-12 mb-3">
             <div class="card">
               <div class="card-header">
-                <span><i class="bi bi-tag me-2"></i></span> Tickets de Clientes
+                <span><i class="bi bi-tag me-2"></i></span> Dados de contato dos clientes
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -25,35 +25,22 @@
                   >
                     <thead>
                       <tr>
-                        <th>ASN</th>
-                        <th>Nome da empresa</th>
-                        <th>Vulnerabilidades detectadas</th>
-                        <th>Vulnerabilidades corrigidas</th>
-                        <th>Ultimo Scan</th>
-                        <th>Status</th>
-                        <th>Ações</th>
+                        <th>Nome</th>
+                        <th>Email do cliente</th>
+                        <th>Telefone</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>52863</td>
-                        <td>UPX</td>
-                        <td>45</td>
-                        <td>1980</td>
-                        <td>25/04/2024</td>
-                        <td>Em andamento</td>
-                        <td><a href="/excluir/relat/" class="bi bi-trash-fill" data-toggle="modal" data-target="#confirmarExcluir" title="Excluir"></a></td>
+                        <td>Gabriel</td>
+                        <td>silva0349@gmail.com</td>
+                        <td>19978270106</td>
                       </tr>
                     <tbody>
                   </table>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="row justify-content-end"> <!-- Alinhando à direita -->
-          <div class="col-auto">
-              <a href="/download" class="btn btn-primary link-download" download>Download da Planilha</a>
           </div>
         </div>
       </div>

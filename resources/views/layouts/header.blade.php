@@ -104,19 +104,11 @@
               <div class="collapse" id="layouts">
                 <ul class="navbar-nav ps-3">
                   <li>
-                    <a href="/relatorio_admin" class="nav-link px-3 sub-item">
+                    <a href="/dados_usuario" class="nav-link px-3 sub-item">
                       <span class="me-2"
                         ><i class="bi bi-clipboard"></i
                       ></span>
-                      <span>Relatório dos clientes</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/relatorio-scan_admin" class="nav-link px-3 sub-item">
-                      <span class="me-2"
-                        ><i class="bi bi-clipboard-data"></i
-                      ></span>
-                      <span>Detalhes do scan</span>
+                      <span>Telefone dos usuarios</span>
                     </a>
                   </li>
                 </ul>

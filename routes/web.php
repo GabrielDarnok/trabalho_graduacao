@@ -5,6 +5,7 @@ use App\Http\Controllers\redirectController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\GraphController;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 
@@ -78,9 +79,7 @@ Route::get('/message', [redirectController::class, 'messageWhats']);
 
 Route::get('/dashboard_admin', [redirectController::class,'dashboardAdmin']);
 
-Route::get('/relatorio_admin', [redirectController::class,'relatorioAdmin']);
-
-Route::get('/relatorio-scan_admin', [redirectController::class,'relatorioScanAdmin']);
+Route::get('/dados_usuario', [redirectController::class,'dadosUser']);
 
 Route::get('/produtos_admin', [redirectController::class,'produtosAdmin']);
 
@@ -91,3 +90,11 @@ Route::post('/car/pedido', [CarrinhoController::class,'finalizaPedido'])->name('
 Route::get('/pedido', [redirectController::class,'pedido']);
 
 Route::get('/usuario-admin', [redirectController::class,'usuarioAdmin']);
+
+Route::get('/dadosbar', [GraphController::class, 'dadosBar']);
+
+Route::get('/dadosbar2', [GraphController::class, 'dadosBar2']);
+
+Route::get('/dados-circular', [GraphController::class, 'dadosCircular']);
+
+Route::get('/dadosline', [GraphController::class, 'dadosLine']);

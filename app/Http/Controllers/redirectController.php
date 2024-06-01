@@ -111,18 +111,11 @@ class redirectController extends Controller
         return view('admin.dashboard_admin',['pedidos'=>$pedidos]);
     }
 
-    public function relatorioAdmin(){
+    public function dadosUser(){
         if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
             return redirect('/');
         }
-        return view('admin.relatorio_admin');
-    }
-
-    public function relatorioScanAdmin(){
-        if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
-            return redirect('/');
-        }
-        return view('admin.relatorio-scan_admin');
+        return view('admin.dados_usuarios');
     }
 
     public function produtosAdmin(){
