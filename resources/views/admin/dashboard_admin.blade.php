@@ -101,8 +101,8 @@
                         <td>{{$pedido->nome_produto}}</td>
                         <td>{{$pedido->email}}</td>
                         <td>{{$pedido->quantidade_car}}</td>
-                        <td>{{$pedido->valor_produto}}</td>
-                        <td>{{$pedido->valor_total}}</td>
+                        <td>R$ {{ number_format($pedido->valor_produto, 2, ',', '.') }}</td>
+                        <td>R$ {{ number_format($pedido->valor_total, 2, ',', '.') }}</td>
                         <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
                       </tr>
                     <tbody>

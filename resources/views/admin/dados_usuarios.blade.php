@@ -26,17 +26,21 @@
                     <thead>
                       <tr>
                         <th>Nome</th>
-                        <th>Email do cliente</th>
+                        <th>Email</th>
                         <th>Telefone</th>
                       </tr>
                     </thead>
+                    @if(isset($dados_users))
+                    @foreach ($dados_users as $dado_user)
                     <tbody>
                       <tr>
-                        <td>Gabriel</td>
-                        <td>silva0349@gmail.com</td>
-                        <td>19978270106</td>
+                        <td>{{ $dado_user->user ? $dado_user->user->name : 'Usuário não encontrado' }}</td>
+                        <td>{{ $dado_user->user ? $dado_user->user->email : 'Email não encontrado' }}</td>
+                        <td>{{$dado_user->number_phone}}</td>
                       </tr>
                     <tbody>
+                    @endforeach
+                    @endif
                   </table>
                 </div>
               </div>

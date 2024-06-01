@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Number;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Pedido;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -44,5 +46,17 @@ class UserController extends Controller
         }
         
         return redirect()->back()->with('msg', 'Role alterada com sucesso');
+    }
+
+    public function dadosPhone(Request $request){
+        
+        $number = new Number();
+
+        $number->id_usuario = Auth::user()->id;
+        $number->number_phone = $request->number_phone;
+
+        $number->save();
+
+        return redirect()->back()->with('msg', 'Numero cadastrado');
     }
 }

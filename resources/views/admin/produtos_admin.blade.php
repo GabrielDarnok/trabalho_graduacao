@@ -3,27 +3,6 @@
 @section('title','Scan Admin')
 
 @section('content')
-  <!--{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    {% for category, message in messages %}
-      <div class="modal fade" id="meuModal" tabindex="-1" role="dialog" aria-labelledby="meuModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="meuModalLabel">Aviso</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              message
-            </div>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  {% endif %}
-{% endwith %}-->
     <!-- offcanvas -->
     <main class="mt-5 pt-3">
       <div class="container-fluid">

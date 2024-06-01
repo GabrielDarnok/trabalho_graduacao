@@ -138,8 +138,9 @@
                     Fique por dentro de promoções, novas coleções ou novos produtos. Apenas informando seu numero.
                 </p>
 
-                <form action="" class="newsletter__form">
-                    <input type="text" placeholder="Digite seu numero de telefone..." class="newsletter__input" pattern="[0-9]*">
+                <form action="{{ route('add.phone')}}" method="POST" class="newsletter__form">
+                    @csrf
+                    <input type="text" name="number_phone" placeholder="Digite seu numero de telefone..." class="newsletter__input" pattern="[0-9]*" required>
                     <button class="button">Enviar</button>
                 </form>
             </div>

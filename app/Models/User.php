@@ -65,4 +65,10 @@ class User extends Authenticatable
     public function carrinho(){
         return $this->hasMany(Car::class, 'id_usuario', 'id');
     }
+
+    // Definir a relação hasMany com Number
+    public function numbers()
+    {
+        return $this->hasMany(Number::class, 'id_usuario');
+    }
 }

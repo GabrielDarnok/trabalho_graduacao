@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Number;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -115,7 +116,10 @@ class redirectController extends Controller
         if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
             return redirect('/');
         }
-        return view('admin.dados_usuarios');
+
+        $dados_users = Number::with('user')->get();
+
+        return view('admin.dados_usuarios', ['dados_users' => $dados_users]);
     }
 
     public function produtosAdmin(){

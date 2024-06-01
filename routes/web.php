@@ -98,3 +98,5 @@ Route::get('/dadosbar2', [GraphController::class, 'dadosBar2']);
 Route::get('/dados-circular', [GraphController::class, 'dadosCircular']);
 
 Route::get('/dadosline', [GraphController::class, 'dadosLine']);
+
+Route::post('/add-phone', [UserController::class, 'dadosPhone'])->name('add.phone')->middleware('auth');
