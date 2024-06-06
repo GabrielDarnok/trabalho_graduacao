@@ -51,6 +51,12 @@ class UserController extends Controller
     public function dadosPhone(Request $request){
         
         $number = new Number();
+        
+        $numberExist = Number::where('number_phone', $request->number_phone)->exists();
+
+        if($numberExist){
+            return redirect()->back()->with('err', 'Numero já está cadastrado');
+        }
 
         $number->id_usuario = Auth::user()->id;
         $number->number_phone = $request->number_phone;
