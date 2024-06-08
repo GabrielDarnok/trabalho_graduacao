@@ -36,7 +36,7 @@
                 <div class="sidebar" style="height: fit-content">
                     <h3 class="filter__title">Seleção de Filtro</h3>
                     <div class="filter__content">
-                        <h3 class="filter__subtitle">Categoria</h3>
+                        <h3 class="filter__subtitle">Valores</h3>
 
                         <div class="filter">
                             <input type="checkbox" value="-" class="inputCategoria" onclick= "productFilter('atual')" name="" id="">
