@@ -30,7 +30,7 @@ Este projeto é um e-commerce desenvolvido como trabalho de graduação. A aplic
 
 1. Clone o repositório:
 
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+    git clone https://github.com/GabrielDarnok/trabalho_graduacao.git
     
 
 2. Navegue até o diretório do projeto:
