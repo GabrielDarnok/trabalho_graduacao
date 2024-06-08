@@ -1,4 +1,4 @@
-# Loja de Ferragens e Materiais de Construção
+# Loja de Ferragens e Materiais de Construção(Zapolla)
 
 Este projeto é um e-commerce desenvolvido como trabalho de graduação. A aplicação permite que usuários naveguem e selecionem produtos fornecidos pela loja Zapolla. O projeto utiliza o framework Laravel para o backend e MySQL como banco de dados.
 
