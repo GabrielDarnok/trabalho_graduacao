@@ -92,7 +92,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ## Contato
 
-- **Autor**: Gabriel Henrique Almeida Silva e Matheus Gomes de Souza
+- **Autor**: Gabriel Henrique Almeida Silva
 - **Email**: silva0349@gmail.com
 - **Autor**: Matheus Gomes de Souza
 - **Email**: matheussgomes2@gmail.com
