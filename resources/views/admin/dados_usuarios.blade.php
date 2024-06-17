@@ -30,17 +30,17 @@
                         <th>Telefone</th>
                       </tr>
                     </thead>
+                    <tbody>
                     @if(isset($dados_users))
                     @foreach ($dados_users as $dado_user)
-                    <tbody>
                       <tr>
                         <td>{{ $dado_user->user ? $dado_user->user->name : 'Usuário não encontrado' }}</td>
                         <td>{{ $dado_user->user ? $dado_user->user->email : 'Email não encontrado' }}</td>
                         <td>{{$dado_user->number_phone}}</td>
                       </tr>
-                    <tbody>
                     @endforeach
                     @endif
+                    <tbody>
                   </table>
                 </div>
               </div>

@@ -85,9 +85,9 @@
                         <th>Ação</th>
                       </tr>
                     </thead>
+                    <tbody>
                     @if(isset($products))
                     @foreach ($products as $product)
-                    <tbody>
                       <tr>
                         <td><img src="/img/product/{{ $product->imagem_produto_1 }}" width="50" height="50"></td>
                         <td>{{ $product->nome_produto }}</td>
@@ -104,9 +104,9 @@
                             </form>
                         </td>
                       </tr>
-                    <tbody>
                     @endforeach
                     @endif
+                    <tbody>
                   </table>
                 </div>
               </div>

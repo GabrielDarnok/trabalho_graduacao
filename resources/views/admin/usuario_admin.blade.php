@@ -32,10 +32,10 @@
                         <th>Ação</th>
                       </tr>
                     </thead>
+                    <tbody>
                     @if(isset($users))
                     @foreach ($users as $user)
                     @if($user->id != Auth::id())
-                    <tbody>
                       <tr>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
@@ -66,10 +66,10 @@
                             @endif
                         </td>
                       </tr>
-                    <tbody>
                     @endif
                     @endforeach
                     @endif
+                    <tbody>
                   </table>
                 </div>
               </div>

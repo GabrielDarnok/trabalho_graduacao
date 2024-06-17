@@ -86,16 +86,16 @@
                       <tr>
                         <th>Imagem</th>
                         <th>Nome do produto</th>
-                        <th>Nome do usuário</th>
+                        <th>Email do usuário</th>
                         <th>Quantidade</th>
                         <th>Valor do produto</th>
                         <th>Valor total</th>
                         <th>Data do pedido</th>
                       </tr>
                     </thead>
+                    <tbody>
                     @if(isset($pedidos))
                     @foreach ($pedidos as $pedido)
-                    <tbody>
                       <tr>
                         <td><img src="/img/product/{{ $pedido->imagem_produto_1 }}" width="50" height="50"></td>
                         <td>{{$pedido->nome_produto}}</td>
@@ -105,9 +105,9 @@
                         <td>R$ {{ number_format($pedido->valor_total, 2, ',', '.') }}</td>
                         <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
                       </tr>
-                    <tbody>
                     @endforeach
                     @endif
+                    <tbody>
                   </table>
                 </div>
               </div>
