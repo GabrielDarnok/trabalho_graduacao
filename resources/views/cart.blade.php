@@ -19,43 +19,52 @@
                     </div>
                     <div class="checkout__box">
                     @if(isset($dados))
-                        @foreach ($dados['produtosNoCarrinho'] as $cart)
-                        <div class="out__card">
-                            <div class="card__product flex">
-                                <img src="/img/product/{{ $cart->imagem_produto_1 }}" alt="" class="out__img">
-                                <div class="product__describe">
-                                    <h3>{{ $cart->nome_produto }}</h3>
-                                    <p>Descrição do produto</p>
+                        @if(!empty($dados['produtosNoCarrinho']))
+                            @foreach ($dados['produtosNoCarrinho'] as $cart)
+                            <div class="out__card">
+                                <div class="card__product flex">
+                                    <img src="/img/product/{{ $cart->imagem_produto_1 }}" alt="" class="out__img">
+                                    <div class="product__describe">
+                                        <h3>{{ $cart->nome_produto }}</h3>
+                                        <p>Descrição do produto</p>
+                                    </div>
+                                </div>
+                                <div class="card__amount">
+                                    <h3>Quantidade</h3>
+                                    <div class="out__amount-content">
+                                        <span class="out__amount-box" onclick="countProductCart('-', {{ $cart->id }})">
+                                            <i class="bx bx-minus" ></i>
+                                        </span>
+            
+                                        <span class="out__amount-number" id="CountProduct{{ $cart->id  }}">{{ $cart->quantidade_car }}</span>
+                    
+                                        <span class="out__amount-box" onclick="countProductCart('+', {{ $cart->id }})">
+                                            <i class="bx bx-plus"></i>
+                                        </span>
+                                    </div>
+                                    <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
+                                    <input type="hidden" name="id" value="{{ $cart->id }}">
+                                    <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
+                                    </form>
+                                </div>
+                                <div class="card__product-price">
+                                    <h3>Valor à vista</h3>
+                                    <span>{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
+                                    <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
                                 </div>
                             </div>
-                            <div class="card__amount">
-                                <h3>Quantidade</h3>
-                                <div class="out__amount-content">
-                                    <span class="out__amount-box" onclick="countProductCart('-', {{ $cart->id }})">
-                                        <i class="bx bx-minus" ></i>
-                                    </span>
-        
-                                    <span class="out__amount-number" id="CountProduct{{ $cart->id  }}">{{ $cart->quantidade_car }}</span>
-                
-                                    <span class="out__amount-box" onclick="countProductCart('+', {{ $cart->id }})">
-                                        <i class="bx bx-plus"></i>
-                                    </span>
+                            @endforeach
+                        @else
+                            <div class="out__card" style="border-bottom: unset">
+                                <div class="empty__cart">
+                                    <h3>Seu carrinho está vazio.</h3>
+                                    <i class="fa-solid fa-cart-arrow-down"></i>
                                 </div>
-                                <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
-                                <input type="hidden" name="id" value="{{ $cart->id }}">
-                                <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
-                                </form>
                             </div>
-                            <div class="card__product-price">
-                                <h3>Valor à vista</h3>
-                                <span>{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
-                                <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
-                            </div>
-                        </div>
-                        @endforeach
+                        @endif
                     </div>
                     @endif
                 </div>
@@ -85,7 +94,7 @@
                                     <input type="submit" class="btn btn-resume" value="FINALIZAR">
                                 </form>
                                 @endif
-                                <a href="/shop"><button class="btn btn-resume first-color-alt">Voltar as compras</button></a>
+                                <a class="btn btn-resume btn-return-shop" href="/shop">Voltar as compras</a>
                             </div>
                         </div>
                     </div>
@@ -105,6 +114,7 @@
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
 
     <script>
         function countProductCart(operation, id){
@@ -157,6 +167,55 @@
                 }
             });
             
+        }
+
+        function abrirModalTelefone() {
+            Swal.fire({
+                title: "Entre com o seu número para continuar",
+                input: "text",
+                inputAttributes: {
+                    autocapitalize: "off"
+                },
+                showCancelButton: true,
+                confirmButtonText: "Salvar",
+                cancelButtonText: "Cancelar",
+                showLoaderOnConfirm: true,
+                didOpen: () => {
+                    // Aplicar a máscara de telefone
+                    Inputmask({
+                        mask: '(99) 99999-9999',
+                        placeholder: '(__) _____-____',
+                        showMaskOnHover: false,
+                        showMaskOnFocus: true
+                    }).mask(Swal.getInput());
+                },
+                preConfirm: async (phoneNumber) => {
+                    const unmaskedPhoneNumber = Swal.getInput().inputmask.unmaskedvalue(); // Obter o número sem a máscara
+                    const phoneNumberPattern = /^[0-9]{10,11}$/; // Ajuste o regex conforme necessário para o formato do número de telefone
+
+                    if (!phoneNumberPattern.test(unmaskedPhoneNumber)) {
+                        Swal.showValidationMessage(`
+                            Por favor, insira um número de telefone válido.
+                        `);
+                        return false;
+                    }
+
+                    try {
+                        await savePhoneNumber(unmaskedPhoneNumber); // Chame a função para salvar o número de telefone sem a máscara
+                    } catch (error) {
+                        Swal.showValidationMessage(`
+                            Falha ao salvar o número: ${error}
+                        `);
+                    }
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Número de telefone salvo com sucesso!"
+                    });
+                }
+            });
         }
     </script>
 @endsection

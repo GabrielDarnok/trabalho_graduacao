@@ -26,12 +26,15 @@ $('#confirmarExclusaoBtn').on('click', function () {
 
 // Config para iniciar a tabela
 $(document).ready(function () {
-    $(".data-table").each(function (_, table) {
-        $(table).DataTable({
-            "language": {
-                "url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
-            }
-        });
+    if ($.fn.dataTable.isDataTable(table)) {
+        $(table).DataTable().destroy();
+        $(table).empty();
+    }
+    
+    $(table).DataTable({
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
+        }
     });
 });
 

@@ -74,7 +74,7 @@
                         <form action="/logout" method="POST">
 							@csrf
                             <a href="/pedido" class="sub-menu-link" onclick="event.preventDefault(); this.closest('form').submit();">
-                                <i class="bx bx-log-out" style="background: #000000; color: white"> </i>
+                                <i class="bx bx-log-out" style="background: var(--first-color); color: white"> </i>
                                 <p>Sair</p>
                             </a>
 						</form>
@@ -181,22 +181,29 @@
 
         @if (isset($dados))
         <div class="cart__container">
-            @foreach ($dados['produtosNoCarrinho'] as $cart)
-            <article class="cart__card">
-                <div class="cart__box">
-                    <img src="/img/product/{{$cart->imagem_produto_1}}" alt="" class="cart__img">
-                </div>
-                <div class="cart__details">
-                    <h3 class="cart__title">{{$cart->nome_produto}}</h3>
-                    <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-number">Quantidade: {{ $cart->quantidade_car }}</span>
-                        </div>   
+            @if (!empty($dados['produtosNoCarrinho']))
+                @foreach ($dados['produtosNoCarrinho'] as $cart)
+                <article class="cart__card">
+                    <div class="cart__box">
+                        <img src="/img/product/{{$cart->imagem_produto_1}}" alt="" class="cart__img">
                     </div>
-                </div>
+                    <div class="cart__details">
+                        <h3 class="cart__title">{{$cart->nome_produto}}</h3>
+                        <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
+                        <div class="cart__amount">
+                            <div class="cart__amount-content">
+                                <span class="cart__amount-number">Quantidade: {{ $cart->quantidade_car }}</span>
+                            </div>   
+                        </div>
+                    </div>
+                </article>
+                @endforeach
+            @else
+            <article class="cart__card" style="justify-content: center;">
+                <h3>Seu carrinho está vazio.</h3>
+                <i class="fa-solid fa-cart-arrow-down"></i>
             </article>
-            @endforeach
+            @endif
         </div>
 
         <div class="cart__prices">

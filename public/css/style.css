@@ -2046,6 +2046,22 @@ input {
     font-weight: var(--font-medium);
 }
 
+.empty__cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: .3rem;
+}
+
+.empty__cart h3 {
+    font-weight: 600;
+}
+
+.empty__cart i {
+    font-size: 1.3rem;
+}
+
 .carrinho{
     margin-top: 10px;
     display: flex;
@@ -2200,6 +2216,7 @@ input {
 
 .btn:hover{
     background:var(--dark-color);
+    color: #fff;
 }
 
 .btn{
@@ -3151,6 +3168,13 @@ input {
     margin-top: .5rem;
 }
 
+.btn-return-shop {
+    background: transparent;
+    border: 3px solid var(--first-color-alt);
+    color: var(--first-color-alt);
+    font-weight: 600;
+}
+
 .first-color-alt {
     background-color: var(--first-color-alt);
 }
@@ -3163,4 +3187,11 @@ input {
 
 .resume__container {
     padding: .75rem;
+}
+
+.mapBox iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: .5rem;
+    box-shadow: 0px 0px 4px 0px #b9b9b9;
 }

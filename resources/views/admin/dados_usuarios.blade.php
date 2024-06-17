@@ -6,7 +6,7 @@
     <main class="mt-5 pt-3">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 section-title">
             <h4>Dados de contato</h4>
           </div>
         </div>
