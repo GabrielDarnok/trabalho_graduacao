@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Product;
 use App\Models\Pedido;
+use App\Models\Number;
+use Illuminate\Support\Facades\Auth;
 
 class CarrinhoController extends Controller
 {
@@ -99,6 +101,13 @@ class CarrinhoController extends Controller
         // Verifique se recebeu algum ID de carrinho
         if (empty($prod_carrinho)) {
             abort(403, 'Acesso negado: nenhum carrinho encontrado.');
+        }
+        $user_id = Auth::id();
+
+        $numberExist = Number::where('user_id', $user_id)->exists();
+
+        if (!$numberExist) {
+            return redirect()->back()->with('err', 'É preciso adicionar um número de telefone.');
         }
         // Processar cada item do carrinho
         foreach ($prod_carrinho as $item) {
