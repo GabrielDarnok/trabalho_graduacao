@@ -88,10 +88,11 @@
                             </div>
                             <div class="resume__btns">
                                 @if(isset($dados))
-                                <form method="POST" action="{{route('add.pedido')}}">
+                                <form method="POST" id="pedido-form" action="{{route('add.pedido')}}">
                                     @csrf
+                                    <input type="hidden" id="numberExist" value="{{$numberExist}}">
                                     <input type="hidden" name="prod_carrinho" value="{{json_encode($dados['produtosNoCarrinho'])}}">
-                                    <input type="submit" class="btn btn-resume" value="FINALIZAR">
+                                    <button type="submit" class="btn btn-resume" onclick="verificaNumero()">FINALIZAR</button>
                                 </form>
                                 @endif
                                 <a class="btn btn-resume btn-return-shop" href="/shop">Voltar as compras</a>
@@ -169,13 +170,60 @@
             
         }
 
+        function verificaNumero() {
+                event.preventDefault(); 
+                let numberExist = $('#numberExist').val(); // Verifique como você está definindo esse valor
+
+                if (numberExist == 0) {
+                    Swal.fire({
+                        title: "Entre com o seu número para continuar",
+                        html: `
+                            <div>
+                                <label for="phone-input">Número de telefone:</label>
+                                <input type="text" id="phone-input" class="swal2-input" placeholder="(99) 99999-9999">
+                            </div>
+                        `,
+                        showCancelButton: true,
+                        confirmButtonText: "Salvar",
+                        cancelButtonText: "Cancelar",
+                        showLoaderOnConfirm: true,
+                        preConfirm: () => {
+                            const inputPhoneNumber = $('#phone-input').val().replace(/\D/g, ''); // Remover caracteres não numéricos
+                            
+                            if (inputPhoneNumber.length !== 11) { // Verificar se o número de dígitos é válido
+                                Swal.showValidationMessage("Por favor, insira um número de telefone válido.");
+                                return false;
+                            }
+
+                            return inputPhoneNumber;
+                        },
+                        allowOutsideClick: () => !Swal.isLoading()
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            phoneNumber = result.value;
+                            $('<input>').attr({
+                                type: 'hidden',
+                                name: 'phone_number',
+                                value: phoneNumber
+                            }).appendTo('#pedido-form');
+
+                            $('#pedido-form').submit();
+                        }
+                    });
+                } else {
+                    $('#pedido-form').submit();
+                }    
+        }
+
         function abrirModalTelefone() {
             Swal.fire({
-                title: "Entre com o seu número para continuar",
-                input: "text",
-                inputAttributes: {
-                    autocapitalize: "off"
-                },
+                title: "Entre com o seu número para continuar o pedido",
+                html: `
+                    <div>
+                        <label for="phone-input">Número de telefone:</label>
+                        <input type="text" id="phone-input" class="swal2-input" placeholder="(__) _____-____">
+                    </div>
+                `,
                 showCancelButton: true,
                 confirmButtonText: "Salvar",
                 cancelButtonText: "Cancelar",
@@ -187,10 +235,11 @@
                         placeholder: '(__) _____-____',
                         showMaskOnHover: false,
                         showMaskOnFocus: true
-                    }).mask(Swal.getInput());
+                    }).mask(document.getElementById('phone-input'));
                 },
-                preConfirm: async (phoneNumber) => {
-                    const unmaskedPhoneNumber = Swal.getInput().inputmask.unmaskedvalue(); // Obter o número sem a máscara
+                preConfirm: async () => {
+                    const phoneNumberInput = document.getElementById('phone-input');
+                    const unmaskedPhoneNumber = phoneNumberInput.inputmask.unmaskedvalue(); // Obter o número sem a máscara
                     const phoneNumberPattern = /^[0-9]{10,11}$/; // Ajuste o regex conforme necessário para o formato do número de telefone
 
                     if (!phoneNumberPattern.test(unmaskedPhoneNumber)) {
