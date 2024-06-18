@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Pedido;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class redirectController extends Controller
 {
@@ -31,8 +32,10 @@ class redirectController extends Controller
         }
         
         $dados = parent::verificaUsuarioLog();
+        $user_id = Auth::id();
 
-        return view('cart', ['dados' => $dados]);
+        $numberExist = Number::where('id_usuario', $user_id)->exists();
+        return view('cart', ['dados' => $dados, 'numberExist'=> $numberExist]);
         
     }
     public function contato(){
