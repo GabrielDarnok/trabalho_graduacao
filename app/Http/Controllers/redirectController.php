@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Pedido;
+use Faker\Extension\NumberExtension;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,11 @@ class redirectController extends Controller
         $user_id = Auth::id();
 
         $numberExist = Number::where('id_usuario', $user_id)->exists();
+
+        if(!$numberExist){
+            $numberExist = 0;
+        }
+
         return view('cart', ['dados' => $dados, 'numberExist'=> $numberExist]);
         
     }
