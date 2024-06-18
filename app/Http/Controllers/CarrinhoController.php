@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Product;
 use App\Models\Pedido;
+use App\Models\Number;
+use Illuminate\Support\Facades\Auth;
 
 class CarrinhoController extends Controller
 {
@@ -94,6 +96,19 @@ class CarrinhoController extends Controller
         abort(403);//Acesso negado
     }
     public function finalizaPedido(Request $request){
+        if($request->number_phone){
+            $number = new Number();
+            $numberExist = Number::where('number_phone', $request->number_phone)->exists();
+
+            if($numberExist){
+                return redirect()->back()->with('err', 'Numero já está cadastrado');
+            }
+            $number->id_usuario = Auth::user()->id;
+            $number->number_phone = $request->number_phone;
+
+            $number->save();
+        }
+        
         $prod_carrinho = json_decode($request->input('prod_carrinho'), true);
 
         // Verifique se recebeu algum ID de carrinho
