@@ -178,7 +178,7 @@ class ProductController extends Controller
                 $query->orderBy('valor_produto', 'desc'); //maior preço
             }
         }
-        $products = $query->paginate(4);
+        $products = $query->paginate(6);
         
         if ($products->isEmpty()) {
             return ['message' => $message];

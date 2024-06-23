@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-@section('title','Scan Admin')
+@section('title','Zapolla - Admin')
 
 @section('content')
     <!-- offcanvas -->

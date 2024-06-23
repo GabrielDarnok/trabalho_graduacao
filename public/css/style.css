@@ -784,7 +784,7 @@ input {
 
 /*=============== Shop Page ===============*/
 .shop {
-    padding-top: 9rem;
+    padding-top: 11rem;
 }
 
 .shop__container {
@@ -837,7 +837,7 @@ input {
 }
 
 .shop__content {
-    height: 17.9rem;
+    height: 19.9rem;
     width: 17.2rem;
     position: relative;
     background-color: var(--container-color);
@@ -875,6 +875,9 @@ input {
     display: block;
     font-size: var(--small-font-size);
     margin-bottom: var(--mb-1);
+    max-height: 3rem;
+    overflow: hidden;
+    padding: .3rem;
 }
 
 .shop__prices {

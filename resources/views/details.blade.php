@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','details')
+@section('title','Zapolla - Detalhes')
 
 @section('content')
     <style>

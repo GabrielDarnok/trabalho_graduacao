@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-@section('title','Dashboard Admin')
+@section('title','Zapolla - Dashboard')
 
 @section('content')
     <!-- offcanvas -->
@@ -16,7 +16,7 @@
             <div class="card h-100">
               <div class="card-header">
                 <span class="me-2"><i class="bi bi-graph-up"></i></span>
-                Quantidade de Vulnerabilidades encontradas
+                Em processo de desenvolvimento...
               </div>
               <div class="card-body">
                 <canvas class="line-chart" width="400" height="200"></canvas>
@@ -38,7 +38,7 @@
             <div class="card h-100">
               <div class="card-header">
                 <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
-                Produtos mais vendidos
+                Produtos mais requisitados
               </div>
               <div class="card-body">
                 <canvas class="pizza-chart" width="400" height="200"></canvas>

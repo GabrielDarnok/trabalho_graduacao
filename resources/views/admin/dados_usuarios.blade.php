@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-@section('title','Relatório Admin')
+@section('title','Zapolla - Usuários')
 
 @section('content')
     <main class="mt-5 pt-3">

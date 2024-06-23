@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-@section('title','Scan Admin')
+@section('title','Zapolla - Produtos')
 
 @section('content')
     <!-- offcanvas -->
@@ -222,11 +222,15 @@
                     success: function(response){
                         Swal.fire(
                           'Sucesso!',
-                          'Produto adicionado com sucesso',
+                          'O produto foi adicionado',
                           'success',
                         ); 
-                        adicionarObjetosATabela(response);
-                        document.getElementById('newProductAdd').reset();
+                    
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+                        // adicionarObjetosATabela(response);
+                        // document.getElementById('newProductAdd').reset();
                     },
                     error: function(xhr, status, error) {
                       Swal.fire(
@@ -244,27 +248,27 @@
                 );
               }              
         }
-        function adicionarObjetosATabela(objetos) {
-            var corpoDaTabela = document.getElementById("tableContent");
-            var htmlLinhas = '';
-              objetos.products.forEach(function(objeto) {
-                  htmlLinhas += '<tr>';
-                  htmlLinhas += '<td>' + "<img src='img/product/"+objeto.imagem_produto_1+"' height='100' alt=>" + '</td>';
-                  htmlLinhas += '<td>' + objeto.nome_produto + '</td>';
-                  htmlLinhas += '<td>' + objeto.descricao_produto + '</td>';
-                  htmlLinhas += '<td>' + objeto.valor_produto + '</td>';
-                  htmlLinhas += '<td>' + objeto.quantidade_estoq + '</td>';
-                  htmlLinhas += '<td>' + '<a href="/admin/edit/'+objeto.id+'" class="btn"><i class="fas fa-edit"></i> editar </a>' +
-                                          '<form action="'+ deleteRoute.replace(':id', objeto.id) +'" method="POST">' +
-                                          '    @csrf' +
-                                          '    @method("DELETE")' +
-                                          '    <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>' +
-                                          '</form>' + '</td>';
-                  htmlLinhas += '</tr>';
-            });
+        // function adicionarObjetosATabela(objetos) {
+        //     var corpoDaTabela = document.getElementById("tableContent");
+        //     var htmlLinhas = '';
+        //       objetos.products.forEach(function(objeto) {
+        //           htmlLinhas += '<tr>';
+        //           htmlLinhas += '<td>' + "<img src='img/product/"+objeto.imagem_produto_1+"' height='100' alt=>" + '</td>';
+        //           htmlLinhas += '<td>' + objeto.nome_produto + '</td>';
+        //           htmlLinhas += '<td>' + objeto.descricao_produto + '</td>';
+        //           htmlLinhas += '<td>' + objeto.valor_produto + '</td>';
+        //           htmlLinhas += '<td>' + objeto.quantidade_estoq + '</td>';
+        //           htmlLinhas += '<td>' + '<a href="/admin/edit/'+objeto.id+'" class="btn"><i class="fas fa-edit"></i> editar </a>' +
+        //                                   '<form action="'+ deleteRoute.replace(':id', objeto.id) +'" method="POST">' +
+        //                                   '    @csrf' +
+        //                                   '    @method("DELETE")' +
+        //                                   '    <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>' +
+        //                                   '</form>' + '</td>';
+        //           htmlLinhas += '</tr>';
+        //     });
 
-            corpoDaTabela.innerHTML = htmlLinhas;
-        }            
+        //     corpoDaTabela.innerHTML = htmlLinhas;
+        // }            
     </script>
     <script>
       function toggleCustomInput() {

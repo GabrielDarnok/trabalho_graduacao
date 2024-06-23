@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','cart')
+@section('title','Zapolla - Carrinho')
 
 @section('content')
 
@@ -203,7 +203,7 @@
                             phoneNumber = result.value;
                             $('<input>').attr({
                                 type: 'hidden',
-                                name: 'phone_number',
+                                name: 'number_phone',
                                 value: phoneNumber
                             }).appendTo('#pedido-form');
 

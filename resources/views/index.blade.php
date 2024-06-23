@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','index')
+@section('title','Zapolla - Home')
 
 @section('content')
 
