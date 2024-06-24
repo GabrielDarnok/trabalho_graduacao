@@ -641,6 +641,8 @@ input {
     margin-bottom: var(--mb-1);
     text-align: left;
     margin-top: 1rem;
+    height: 4.5rem;
+    overflow: hidden;
 }
 
 .new__prices {
