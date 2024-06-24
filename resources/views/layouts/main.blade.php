@@ -30,7 +30,7 @@
                 <img src="/img/logo_zap.png" alt="Zapolla">
             </a>
             
-            <div class="nav__search-box" style="display: flex; align-items: center;">
+            <div class="nav__search-box" style="align-items: center;">
                 <form method="GET" action="{{ route('shop') }}" style="display: flex; align-items: center;">
                     @csrf
                     <input class="input" style="border: black; width: 18rem; margin-right: 5px;" name="search" placeholder="O que procura na Zapolla?" id="valorPesquisa" oninput="productFilter('atual')">

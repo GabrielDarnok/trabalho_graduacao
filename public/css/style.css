@@ -2684,6 +2684,10 @@ input {
         margin: var(--header-height)0 0 0;
     }
 
+    .nav__search-box {
+        display: none;
+    }
+    
     .containerpag form {
         width: 90%;
     }
@@ -2818,6 +2822,11 @@ input {
     .about__container {
         grid-template-columns: 1fr;
         row-gap: 2rem;
+    }
+
+    .checkout__container {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .search__box {
