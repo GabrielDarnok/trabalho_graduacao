@@ -90,12 +90,12 @@ window.addEventListener('scroll', scrollHeader)
 /*=============== SLIDE COLEÇÃO ===============*/
 var newSwiper = new Swiper(".new-swiper", {
   spaceBetween:16,
-  centeredSlides: true,
+  centeredSlides: false,
   slidesPerView: 3,
-  loop:"true",
+  loop:"false",
   autoplay: {
     delay: 5000,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
 },
 });
 

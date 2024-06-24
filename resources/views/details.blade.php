@@ -36,7 +36,6 @@
             <div class="details__container grid">
                 <div class="swiper home-swiper" style="width: 500px;">
                     <div class="swiper-wrapper">
-                        <!--Slide 1 aqui-->
                         @for($i = 1; $i <= 4; $i++)
                             @if(isset($Product->{"imagem_produto_$i"}))
                                 <section class="swiper-slide">
@@ -71,7 +70,7 @@
 
                 <div class="product__info">
                     <h3 class="details__subtitle">{{ $Product->nome_produto }}</h3>
-                    <p class="details__title">You Matter</p>
+                    <p class="details__title">Zapolla</p>
 
                     <div class="rating">
                         <div class="stars">
@@ -81,7 +80,7 @@
                             <i class="bx bxs-star"></i>
                             <i class="bx bx-star"></i>
                         </div>
-                        <span class="reviews__count">60+ opniões sobre o produto.</span>
+                        <span class="reviews__count">... opniões sobre o produto.</span>
                     </div>
 
                     <div class="details__prices">
@@ -139,7 +138,7 @@
                                 <img src="/img/product/{{ $product_show->imagem_produto_1 }}" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">{{ $product_show->nome_produto }}</h3>
-                            <span class="new__subtitle">You Matter</span>
+                            <span class="new__subtitle">Zapolla</span>
 
                             <div class="new__prices">
                                 <span class="new__price">R$ {{ number_format($product_show->valor_produto, 2, ',', '.') }}</span>
