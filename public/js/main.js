@@ -96,7 +96,19 @@ var newSwiper = new Swiper(".new-swiper", {
   autoplay: {
     delay: 5000,
     disableOnInteraction: true,
+  },
+  breakpoints: {
+    0: {
+        slidesPerView: 1,
+    },
+    768: {
+        slidesPerView: 2,
+    },
+    1024: {
+        slidesPerView: 3,
+    },
 },
+
 });
 
 /*=============== SHOW SCROLL UP ===============*/ 
