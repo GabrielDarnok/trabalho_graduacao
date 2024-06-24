@@ -72,7 +72,10 @@
                         </a>
                         <form action="/logout" method="POST" class="sub-menu-link">
 							@csrf
-							<a href="/logout" class="bx bx-log-out" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+							<a href="/pedido" class="sub-menu-link" onclick="event.preventDefault(); this.closest('form').submit();">
+                                <i class="bx bx-log-out" style="background: var(--first-color); color: white"> </i>
+                                <p>Sair</p>
+                            </a>
 						</form>
                     </div>
                 </div>
