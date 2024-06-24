@@ -47,7 +47,7 @@
                 @endguest
                 @auth
                 <div>
-                    <i class="bx bxs-user" class="user__pic" id="userPic"> </i> 
+                    <i class="bx bxs-user" class="user__pic"  style="font-size: 1.25rem" id="userPic"> </i> 
                 </div>
                 <div class="sub-menu-wrap" id="subMenu">
 
